@@ -12,14 +12,14 @@
         <meta name="author" content="rasilab">
       
       
-        <link rel="canonical" href="https://rasilab.github.io/docs/data_analysis/guidelines_for_storing_data_from_different_assay/">
+        <link rel="canonical" href="https://rasilab.github.io/docs/data_analysis/analysis_workflow/">
       
       <link rel="icon" href="../../images/favicon.ico">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
     
     
       
-        <title>Guidelines for storing data from different assay - Subramaniam Lab Docs</title>
+        <title>Analysis workflow - Subramaniam Lab Docs</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contents-toc" class="md-skip">
+        <a href="#data" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Guidelines for storing data from different assay
+              Analysis workflow
             
           </span>
         </div>
@@ -373,37 +373,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contents-toc" class="md-nav__link">
-    Contents toc
+  <a href="#data" class="md-nav__link">
+    Data
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#guidelines-for-all-assays" class="md-nav__link">
-    Guidelines for all assays
+  <a href="#analyses" class="md-nav__link">
+    Analyses
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-analyses" class="md-nav__link">
+    Simple analyses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-step-analyses" class="md-nav__link">
+    Multi-step analyses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guidelines-for-specific-assays" class="md-nav__link">
+    Guidelines for specific assays
+  </a>
+  
+    <nav class="md-nav" aria-label="Guidelines for specific assays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#agarose-gel-images" class="md-nav__link">
     Agarose gel images
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#flow-cytometry" class="md-nav__link">
-    Flow cytometry
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#polysome-profiling" class="md-nav__link">
-    Polysome profiling
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -419,52 +445,78 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/rasilab/protocols_tutorials/blob/master/docs/data_analysis/guidelines_for_storing_data_from_different_assay.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/rasilab/protocols_tutorials/blob/master/docs/data_analysis/analysis_workflow.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-  <h1>Guidelines for storing data from different assay</h1>
+  <h1>Analysis workflow</h1>
 
-<p>If you are not following the protocols below, ask Rasi first.</p>
-<h2 id="contents-toc">Contents <span class="tag" tag-name="toc"><span class="smallcaps">toc</span></span><a class="headerlink" href="#contents-toc" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#contents-toc">Contents <span class="tag" tag-name="toc"><span class="smallcaps">toc</span></span></a></li>
-<li><a href="#guidelines-for-all-assays">Guidelines for all assays</a></li>
+<li><a href="#data">Data</a></li>
+<li><a href="#analyses">Analyses</a></li>
+<li><a href="#software">Software</a></li>
+<li><a href="#simple-analyses">Simple analyses</a></li>
+<li><a href="#multi-step-analyses">Multi-step analyses</a></li>
+<li><a href="#guidelines-for-specific-assays">Guidelines for specific assays</a></li>
 <li><a href="#agarose-gel-images">Agarose gel images</a></li>
-<li><a href="#flow-cytometry">Flow cytometry</a></li>
-<li><a href="#polysome-profiling">Polysome profiling</a></li>
 </ul>
-<h2 id="guidelines-for-all-assays">Guidelines for all assays<a class="headerlink" href="#guidelines-for-all-assays" title="Permanent link">&para;</a></h2>
+<h2 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Only raw data should be stored in <code>/fh/fast/subramaniam_a/data/</code> folder. No processed files, summary tables or figures are allowed.</li>
-<li>Every data containing raw data should have an associated <code>sampleannotations.csv</code> file. You should do this even for assays that yield a single image such as Western blots. The only exceptions are agarose gel images, Sanger sequencing data, and Nanodrop measurements (essentially only those measurements that are unlikely to be used in a publication or analyzed quantitatively).</li>
-<li>Analysis for each experiment should be performed in a dedicated directory in <code>/fh/scratch/delete90/subramaniam_a/user/USERNAME/git/GITHUB_REPOSITORY/</code>.</li>
-<li>Each analysis folder should contain a single <code>README.md</code> file at the top level. All other files should be stored in one of <code>data</code>, ,<code>annotations</code>, <code>scripts</code>, <code>figures</code>, <code>tables</code> subdirectories.</li>
-<li>The <code>data</code> folder for an experiment should contain a <code>sampleannotations.csv</code> file.</li>
-<li>All scripts in the <code>scripts</code> folder should be in the <code>lab_analysis_code</code> git repository.</li>
-<li>Figures, tables, and annotation files should be included in the same <code>lab_analysis_code</code> repository, but do not include tables that are more than a few MB.</li>
-<li>Tables should always be in <code>.csv</code> or <code>.tsv</code> format. Confirm that they are displayed natively (in pretty format) on Github.</li>
-<li>Save figures in <code>.pdf</code> format or <code>.png</code> if the PDF is very large (more than a few MB).</li>
+<li>Raw data and sample annotations for each experiment will be stored in AWS S3. Do this even for experiments where the data is already on the Fred Hutch cluster, such as deep sequencing data.</li>
+<li>Use the link and login info in <a href="https://github.com/rasilab/protocols/blob/master/internal/login_and_ordering_for_vendors.md">https://github.com/rasilab/protocols/blob/master/internal/login_and_ordering_for_vendors.md</a> to access the AWS S3 bucket.</li>
+<li>Data for any single experiment should go into the folder <code>fh-pi-subramaniam-a-eco/data/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/</code>.</li>
+<li>Every experiment folder much have an associated <code>sample_annotations.csv</code> file in the same folder. See <a href="../how-to-create-a-sample-annotation-file-before-analysis/">here</a> for how to create this file. You should create <code>sample_annotations.csv</code> even for assays that yield a single image such as Western blots. The only exceptions are agarose gel images, Sanger sequencing data, and Nanodrop measurements (only those measurements that are unlikely to be used in a publication or analyzed quantitatively).</li>
+<li>You can login to AWS S3 from any computer connected to the internet and upload your data files using the web interface. Alternately, you can also use the AWS CLI command <code>cp</code> to copy from your local computer to the AWS S3 bucket after you create the bucket. See example below.</li>
 </ul>
-<h2 id="agarose-gel-images">Agarose gel images<a class="headerlink" href="#agarose-gel-images" title="Permanent link">&para;</a></h2>
+<h2 id="analyses">Analyses<a class="headerlink" href="#analyses" title="Permanent link">&para;</a></h2>
+<ul>
+<li>All analysis should be performed in the project GitHub repository cloned to <code>/fh/scratch/delete90/subramaniam_a/USER-NAME/git/REPO-NAME</code>.</li>
+<li>Create a new branch for each analysis and merge it with <code>main</code> or <code>master</code> when the analysis is complete.</li>
+<li>Analysis scripts for any single experiment should go into the folder <code>analysis/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/</code>.</li>
+<li>Each analysis folder should contain a <code>README.md</code> file at the top level. All other files should be stored in one of <code>data</code>, ,<code>annotations</code>, <code>scripts</code>, <code>figures</code>, <code>tables</code> subfolders.</li>
+<li>Raw data and sample annotations should be copied from AWS S3 into <code>analysis/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/data/</code>. For multistep analysis such deep sequencing where you generate lot of processed data,  store your raw data in a subfolder of <code>data</code> such as <code>fastq</code>.</li>
+<li>Copy files from AWS S3 to the <code>data</code> folder using the following <code>aws cli</code>command. Store this command as <code>aws_s3_cp.sh</code> in the <code>data</code> folder and commit it to GitHub so that you can easily run it again the next time you want to perform the analysis.</li>
+</ul>
+<p><code>aws cp s3://fh-pi-subramaniam-a-eco/data/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/ .</code></p>
+<ul>
+<li>Commit README.md, scripts and small image and tables (&lt;1MB) to GitHub. </li>
+<li>All tables should be in CSV or TSV format and not in XLS or ODS format.</li>
+<li>All figures should be PDF format so that they can be edited in Inkscape. The only exceptions are scatter plots with lot of points where a PNG is suitable to save space.</li>
+<li>The analysis should be fully reproducible by running a single script such as Jupyter Notebook or a Snakemake pipeline. Note that all intermediate files will be automatically deleted after 90 days in the <code>scratch</code> folder.</li>
+</ul>
+<h2 id="software">Software<a class="headerlink" href="#software" title="Permanent link">&para;</a></h2>
+<p>All analysis should be performed in <code>singularity</code> containers or <code>conda</code> environments that can be reproducibly created from a <code>Dockerfile</code> or an <code>environment.yml</code> file, respectively.</p>
+<p>We perform simple analyses on the cluster from within VSCode using the Remote SSH extension. For more comple analyses that need to run over multiple days, we run commands from <code>tmux</code> session on the cluster to preserve the session if the connection is lost.</p>
+<h3 id="simple-analyses">Simple analyses<a class="headerlink" href="#simple-analyses" title="Permanent link">&para;</a></h3>
+<p>For quick analysis on the cluster with a single script (such as for a flow experiment), use one of the pre-created <code>conda</code> environments that mirrors our lab's <code>project_repo</code> folder. You can list all available environments in the cluster using the following command. You should be also able to see the corresponding Jupyter kernel in VSCode.</p>
+<pre><code>```bash 
+conda info --envs
+```
+</code></pre>
+<p>If you want to create such an environment from a <code>Dockerfile</code>, convert the <code>mamba create</code> and <code>mamba install</code> commands for that environment into a shell script and run it.</p>
+<h3 id="multi-step-analyses">Multi-step analyses<a class="headerlink" href="#multi-step-analyses" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Either use one of our lab's predefined <code>singularity</code> containers pulled from our lab's <a href="https://github.com/orgs/rasilab/packages">package repository</a> or create your own <code>singularity</code> container from a <code>Dockerfile</code> file.</li>
+<li>
+<p>To pull a <code>singularity</code> container from our lab's package repository, use the following command. Use a specific version number such as <code>1.3.0</code> instead of <code>latest</code> so that you can identify the container version easily.</p>
+<p><code>bash
+module load Singularity # Fred Hutch specific.
+singularity pull docker://ghcr.io/rasilab/&lt;container_name&gt;:VERSION_NUMBER</code></p>
+</li>
+<li>
+<p>To create your own <code>singularity</code> containers, follow <a href="">TBD</a> steps to create a <code>Docker</code> container from a <code>Dockerfile</code> and push it to the lab package repository. Then pull the container from the package repository as above.</p>
+</li>
+<li>Incorporate your container into a <code>snakemake</code> workflow by adding the <code>container: LOCATION_OF_SIF_FILE</code> directive inside a <code>Snakefile</code>, and using the <code>--use-singularity</code> flag when running <code>snakemake</code>. For example of how to use <code>snakemake</code> with <code>singularity</code> containers, see <a href="https://github.com/rasilab/burke_2022/blob/master/analysis/submit_local.sh">this example</a> and <a href="https://github.com/rasilab/burke_2022/blob/master/analysis/riboseq/han2020/scripts/analyze_riboseq_data.smk">this example</a>. Note that you can use a single <code>singularity</code> container and refer to specific <code>conda</code> environments within that container for individual rules in the <code>Snakefile</code>. You can also specific unique containers for each rule in the <code>Snakefile</code>.</li>
+</ul>
+<h2 id="guidelines-for-specific-assays">Guidelines for specific assays<a class="headerlink" href="#guidelines-for-specific-assays" title="Permanent link">&para;</a></h2>
+<h3 id="agarose-gel-images">Agarose gel images<a class="headerlink" href="#agarose-gel-images" title="Permanent link">&para;</a></h3>
 <ul>
 <li>We usually do not need high-resolution images for analysis or publication, so save the image in <code>.jpg</code> format from the Gel-Doc computer.</li>
-<li>The raw file should be stored in <code>/fh/fast/subramaniam_a/data/USERNAME/gel_images/YYYYMMDD_expNN_short_description_of_experiment</code> folder and filename should be <code>YYYYMMDD_expNN_short_description_image.jpg</code>.</li>
+<li>To save time, all agarose gels can be in a single folder at <code>fh-pi-subramaniam-a-eco/data/USER-NAME/agarose_gels</code> with the name <code>YYYYMMDD_expNN_short_description_image.jpg</code>.</li>
 <li>You can annotate the <code>jpg</code> image using Inkscape. You can also invert the color and crop the image if necessary. You can then export it as PNG for uploading.</li>
-<li>The annotated gel image should be uploaded to the project or your GitHub repo AND your Wordpress lab notebook.</li>
-<li>*No files should be stored in the analysis folder <code>/fh/fast/subramaniam_a/user/USERNAME/analysis/gel_images</code> unless absolutely necessary.</li>
-</ul>
-<h2 id="flow-cytometry">Flow cytometry<a class="headerlink" href="#flow-cytometry" title="Permanent link">&para;</a></h2>
-<ul>
-<li>The raw <code>.fcs</code> files should be stored at <code>/fh/fast/subramaniam_a/data/USERNAME/flow/YYYYMMDD_expNN_short_description_of_experiment</code> without creating any subdirectory.</li>
-<li>The above data directory should also contain a <code>sampleannotations.csv</code> file that provides annotations for each of the <code>.fcs</code> files following the convention in <a href="../how-to-create-a-sample-annotation-file-before-analysis/">this</a> file.</li>
-</ul>
-<h2 id="polysome-profiling">Polysome profiling<a class="headerlink" href="#polysome-profiling" title="Permanent link">&para;</a></h2>
-<ul>
-<li>The raw <code>.csv</code> files should be stored at <code>/fh/fast/subramaniam_a/data/USERNAME/polysome_profiling/YYYYMMDD_expNN_short_description_of_experiment</code> without creating any subdirectory.</li>
-<li>The above data directory should also contain a <code>sampleannotations.csv</code> file that provides annotations for each of the <code>.csv</code> files following the convention in <a href="../how-to-create-a-sample-annotation-file-before-analysis/">this</a> file.</li>
+<li>The annotated gel image should be uploaded to the project or your GitHub repo.</li>
 </ul>
 
               
