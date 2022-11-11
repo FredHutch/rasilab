@@ -12,14 +12,14 @@
         <meta name="author" content="rasilab">
       
       
-        <link rel="canonical" href="https://rasilab.github.io/docs/software/how_to_write_git_commit_message/">
+        <link rel="canonical" href="https://rasilab.github.io/docs/software/how_to_use_github_issues_and_branches/">
       
       <link rel="icon" href="../../images/favicon.ico">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
     
     
       
-        <title>How to write git commit message - Subramaniam Lab Docs</title>
+        <title>How to use GitHub Issues and Branches - Subramaniam Lab Docs</title>
       
     
     
@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#how-to-use-github-issues-and-branches" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to write git commit message
+              How to use GitHub Issues and Branches
             
           </span>
         </div>
@@ -375,6 +380,51 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-open-a-github-issue-for-each-experiment" class="md-nav__link">
+    1. Open a Github issue for each experiment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-issue-branch-for-recording-your-work" class="md-nav__link">
+    2. Create issue branch for recording your work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-save-your-progress-as-commits" class="md-nav__link">
+    3. Save your progress as commits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-use-issue-comments-to-discuss-troubleshooting-and-results-with-collaborators" class="md-nav__link">
+    4. Use issue comments to discuss troubleshooting and results with collaborators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-wrap-up-experiment-with-pull-requests" class="md-nav__link">
+    5. Wrap up experiment with pull requests
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -386,29 +436,95 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/rasilab/protocols_tutorials/blob/master/docs/software/how_to_write_git_commit_message.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/rasilab/protocols_tutorials/blob/master/docs/software/how_to_use_github_issues_and_branches.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-  <h1>How to write git commit message</h1>
-
-<p>The first line in the commit message is the title or the subject. The subsequent
-lines are designated as body.</p>
+<h1 id="how-to-use-github-issues-and-branches">How to use GitHub Issues and Branches<a class="headerlink" href="#how-to-use-github-issues-and-branches" title="Permanent link">&para;</a></h1>
+<p>We use GitHub to record the entirety of the scientific process: From hypothesis generation, discussions, experimental protocols and observations, data annotation and storage (as raw data or symbolic links), to data visualization and interpretation. Below is a step-by-step guide to a typical experiment workflow. </p>
+<h2 id="1-open-a-github-issue-for-each-experiment">1. Open a Github issue for each experiment<a class="headerlink" href="#1-open-a-github-issue-for-each-experiment" title="Permanent link">&para;</a></h2>
+<p>Use Github Issues as the start and end points of your experiments (either wet- or dry-lab). </p>
 <ol>
-<li>Include the issue number in the subject / title as <code>#&lt;issue number&gt;</code>. This
-    will automatically link the commit to the issue timeline in GitHub.</li>
-<li>Separate subject from body with a blank line</li>
-<li>Limit the subject line to 50 characters</li>
-<li>Capitalize the subject line</li>
-<li>Do not end the subject line with a period</li>
-<li>Use the imperative mood in the subject line</li>
-<li>Wrap the body at 72 characters</li>
-<li>Use the body to explain what and why vs. how</li>
+<li>To start an experiment, <strong>open a new issue</strong> on the respective project repository.</li>
+<li>Choose one of the <strong>issue templates</strong> (experiment, analysis, cloning, etc.) or a blank issue.</li>
+<li>Fill out the <code>title</code>,  <code>background</code> and <code>strategy</code> sections of the <strong>issue body</strong>.<ul>
+<li><code>background</code>: Describe what led you to do this experiment. Your
+    description should be understandable without reading further background.
+    Link to issues containing previous experiments (<code>#&lt;issue-number&gt;</code>),
+    analyses and external citations that will help someone who wants to dig
+    into the details.</li>
+<li><code>strategy</code>: Outline the experimental strategy in plain and understandable full sentences.</li>
+</ul>
+</li>
+<li>Customize the <strong>tags and labels</strong> on the right panel:<ul>
+<li><code>Assignees</code>: who will participate in this experiment?</li>
+<li><code>Labels</code>: use labels that will allow you to easily filter and manage your issues. Labels typically indicate what <em>type</em> of experiment it is (<code>analysis</code>, <code>idea</code>...) and the <em>status</em> of the experiment (<code>to do</code>, <code>successful</code>...).</li>
+<li><code>Projects</code>: selecting project board automatically links the issue to your project board, which allows you to easily track all your open issues.</li>
+<li><code>Milestone</code>: (optional) this allows you group issues by a common theme. Milestones might be helpful if you are at the stage where you are pursuing multiple different directions in your project. </li>
+</ul>
+</li>
 </ol>
-<p>For more explanation, see this reference:
-<a href="https://chris.beams.io/posts/git-commit/#seven-rules">https://chris.beams.io/posts/git-commit/#seven-rules</a></p>
+<p>Once you have completed the information above, click <code>Submit new issue</code>. The next step is to set up your issue <code>branch</code>.</p>
+<h2 id="2-create-issue-branch-for-recording-your-work">2. Create issue <code>branch</code> for recording your work<a class="headerlink" href="#2-create-issue-branch-for-recording-your-work" title="Permanent link">&para;</a></h2>
+<p>The ability to have a
+<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches"><code>branch</code></a>
+for each specific issue is one of the main reasons we use GitHub as your lab
+notebook. Branches allow you to isolate your work on an experiment without
+affecting the central copy of your lab notebook, i.e the <code>main</code> or <code>master</code>
+branch of your project repository. This is a key feature if you are working in a
+collaborative experiment where each person needs to update their notes and
+protocols without interfering with each others work. Moreover, branches allow
+you to work on multiple experiments (issues) at once, while being able to keep
+your <code>commit</code> history linear for each of your experiments.</p>
+<p>The easiest way to checkout and manage your issue branches is as follows:</p>
+<ol>
+<li>Download the <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github">Github Issues &amp; Pull Requests</a> on vscode marketplace</li>
+<li>Open your project repository on vscode (make sure you are logged into GitHub)</li>
+<li>Click on the GitHub icon the extensions bar, and hover over the issue you want to start working on.<ul>
+<li>Click on the arrow <code>start working on Issue and Checkout topic branch</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="3-save-your-progress-as-commits">3. Save your progress as <code>commits</code><a class="headerlink" href="#3-save-your-progress-as-commits" title="Permanent link">&para;</a></h2>
+<p>Now you can start working on your experiment and analyses. Remember to switch branches following the same steps whenever you want to work on different issues/branches.<br />
+Record your experimental protocols in a markdown document in the
+<code>experiments\user</code> folder. As you plan, record notes and observations, and add
+new files, save your progress as <code>commits</code>. Git/GitHub allows you save snapshots
+of your work as
+<a href="https://www.atlassian.com/git/tutorials/saving-changes/git-commit#:~:text=The%20git%20commit%20command%20captures,you%20explicitly%20ask%20it%20to."><code>commits</code></a>.
+<a href="https://github.com/rasilab/micropeptide_immunity/pull/114">Here</a> is an example.
+To learn how to use version control with vscode, see
+<a href="https://code.visualstudio.com/docs/introvideos/versioncontrol">here</a>. Writing
+succinct but descriptive commit messages will help you find changes easily.
+<a href="../how_to_write_git_commit_message/">These</a> are some pointers on how to write
+good commit messages. Commits should always be linked to specific issues. You
+can automatically ping issue timelines with a commit by including the issue
+number in the issue title body.</p>
+<h2 id="4-use-issue-comments-to-discuss-troubleshooting-and-results-with-collaborators">4. Use <code>issue comments</code> to discuss troubleshooting and results with collaborators<a class="headerlink" href="#4-use-issue-comments-to-discuss-troubleshooting-and-results-with-collaborators" title="Permanent link">&para;</a></h2>
+<p>As you perform your experiment, you will often want to discuss your progress and
+intermediate results with your collaborators on the project. Use the <code>comment</code>
+section below the top body of the issue to post figures, links to code commits, and
+tables. Issue comments will capture changes in experiment design or
+interpretation of results. You can link to issue comments from other issues or
+repositories.</p>
+<h2 id="5-wrap-up-experiment-with-pull-requests">5. Wrap up experiment with <code>pull requests</code><a class="headerlink" href="#5-wrap-up-experiment-with-pull-requests" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Update the issue body to include the main results of your experiment or analysis.</li>
+<li>Update any links to experiment protocols and analyses in the issue body.</li>
+<li>Add a <code>Brief Conclusion</code>, in which you link the next steps/issues, if any. </li>
+<li>Now you can merge the your <code>issue</code> branch with the <code>main</code> branch by creating a pull request:<ul>
+<li>Go to the GitHub extension on you local vscode</li>
+<li>Checkout the issue branch you want to merge</li>
+<li>Hover over the <code>Pull Requests</code> top tab and click on <code>Create Pull Requests</code></li>
+<li>If there are no conflicts, you can <code>Merge pull request</code>. Choose the option <code>Create a Merge Commit</code>.</li>
+</ul>
+</li>
+<li>Go back to your issue on GitHub, and link your pull request on <code>Development</code>.</li>
+<li>Update issue labels.</li>
+<li>Close issue. </li>
+</ol>
 
               
             </article>
