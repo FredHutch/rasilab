@@ -401,6 +401,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    example
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -419,56 +440,87 @@
 
 
 
-  <h1>How to create docker and singularity images</h1>
-
 <h2 id="file-organization">File organization<a class="headerlink" href="#file-organization" title="Permanent link">&para;</a></h2>
 <ul>
-<li>All Docker and Singularity images should be build off a <code>Dockerfile</code> file that lives in a specific project repository.</li>
-<li>We have two types of Docker images:</li>
-<li>Images for generic analyses and writing such as [this]https://github.com/rasilab/project_repo/pkgs/container/project_repo) one.</li>
-<li>Images specific to an analysis pipeline such as <a href="https://github.com/orgs/rasilab/packages/container/package/codon_optimality_mammalian_cells%2Fissue44_dual_sgrna_linkage">this</a> one.</li>
-<li><code>Dockerfile</code>s for generic images are in the <code>.devcontainer</code> folder at the root of each project repository.</li>
-<li>Analysis-specific <code>Dockerfile</code>s are in a <code>install</code> or <code>software</code> subfolder within the folder specific to that analysis.</li>
+<li>
+<p>All Docker and Singularity images should be build off a <code>Dockerfile</code> file that lives in a specific project repository.</p>
+</li>
+<li>
+<p>We have two types of Docker images:</p>
+<ol>
+<li>
+<p>Images for generic analyses and writing such as [this]https://github.com/rasilab/project_repo/pkgs/container/project_repo) one.</p>
+</li>
+<li>
+<p>Images specific to an analysis pipeline such as <a href="https://github.com/orgs/rasilab/packages/container/package/codon_optimality_mammalian_cells%2Fissue44_dual_sgrna_linkage">this</a> one.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><code>Dockerfile</code>s for generic images are in the <code>.devcontainer</code> folder at the root of each project repository.</p>
+</li>
+<li>
+<p>Analysis-specific <code>Dockerfile</code>s are in a <code>install</code> or <code>software</code> subfolder within the folder specific to that analysis.</p>
+</li>
 </ul>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <p>To create or update a <code>Dockerfile</code> and the associated <code>image</code>, follow these steps:</p>
 <ul>
-<li>Edit the <code>Dockerfile</code> in <code>VScode</code> to add or remove software. Always make modifications at the end of the <code>Dockerfile</code> so that only few intermediate images need to be re-created. This decreases the space and time requirements for building and pushing the image.</li>
-<li>Build the Docker image from the folder that contains the <code>Dockerfile</code>. Give a specific tag (see below for tag convention).</li>
-</ul>
+<li>
+<p>Edit the <code>Dockerfile</code> in <code>VScode</code> to add or remove software. Always make modifications at the end of the <code>Dockerfile</code> so that only few intermediate images need to be re-created. This decreases the space and time requirements for building and pushing the image.</p>
+</li>
+<li>
+<p>Build the Docker image from the folder that contains the <code>Dockerfile</code>. Give a specific tag (see below for tag convention).</p>
+<p>```bash
+docker build -t <image_name:tag> .</p>
+<h1 id="example">example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h1>
+<p>docker build -t ghcr.io/rasilab/project_repo:0.1.0 .
+```</p>
+</li>
+<li>
+<p>Assuming the above build command is successful, first commit and tag the <code>Dockerfile</code>. </p>
 <p><code>bash
-  docker build -t &lt;image_name:tag&gt; .
-  # example
-  docker build -t ghcr.io/rasilab/project_repo:0.1.0 .</code></p>
-<ul>
-<li>Assuming the above build command is successful, first commit and tag the <code>Dockerfile</code>. </li>
-</ul>
-<p><code>bash
-  git add Dockerfile
-  git commit -m "Update Dockerfile with &lt;software&gt;"
-  git tag -a &lt;tag&gt; -m "Update Dockerfile with &lt;software&gt;"
-  git push origin &lt;tag&gt;</code></p>
-<ul>
-<li>We use the same tag for the <code>Dockerfile</code> and the <code>image</code>. The tags follow the <a href="https://semver.org/">semantic versioning</a> convention. In practice, this means:</li>
-<li>Use tags of the form <code>X.Y.Z</code>. Start with <code>0</code> for <code>X</code> and <code>1</code> for <code>Y</code> and <code>0</code> for <code>Z</code>.</li>
-<li>If you fix an error in your Dockerfile/image, increment the third digit <code>Z</code>.</li>
-<li>If you add an extra package that will not break compatibility of the Docker image with previous versions, increment the second digit <code>Y</code>.</li>
-<li>If you make any incompatible changes, increment the first digit <code>X</code> (avoid this as much as possible).</li>
-<li>Push the Docker image to the GitHub container registry.</li>
-</ul>
-<p><code>bash
-  docker push &lt;image_name:tag&gt;
-  # example
-  docker push ghcr.io/rasilab/project_repo:0.1.0</code></p>
-<ul>
-<li>You can pull these images as <code>Singularity</code> images using the following command (used on Fred Hutch cluster):</li>
-</ul>
-<p><code>bash
-  singularity pull docker://&lt;image_name:tag&gt;
-  # example
-  singularity pull docker://ghcr.io/rasilab/project_repo:0.1.0</code></p>
-<ul>
-<li>Note that <code>Docker</code> is not allowed on the Fred Hutch cluster. You can use <code>Singularity</code> images instead.</li>
+git add Dockerfile
+git commit -m "Update Dockerfile with &lt;software&gt;"
+git tag -a &lt;tag&gt; -m "Update Dockerfile with &lt;software&gt;"
+git push origin &lt;tag&gt;</code></p>
+</li>
+<li>
+<p>We use the same tag for the <code>Dockerfile</code> and the <code>image</code>. The tags follow the <a href="https://semver.org/">semantic versioning</a> convention. In practice, this means:</p>
+<ol>
+<li>
+<p>Use tags of the form <code>X.Y.Z</code>. Start with <code>0</code> for <code>X</code> and <code>1</code> for <code>Y</code> and <code>0</code> for <code>Z</code>.</p>
+</li>
+<li>
+<p>If you fix an error in your Dockerfile/image, increment the third digit <code>Z</code>.</p>
+</li>
+<li>
+<p>If you add an extra package that will not break compatibility of the Docker image with previous versions, increment the second digit <code>Y</code>.</p>
+</li>
+<li>
+<p>If you make any incompatible changes, increment the first digit <code>X</code> (avoid this as much as possible).</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Push the Docker image to the GitHub container registry.</p>
+<p>```bash
+docker push <image_name:tag></p>
+<h1 id="example_1">example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h1>
+<p>docker push ghcr.io/rasilab/project_repo:0.1.0
+```</p>
+</li>
+<li>
+<p>You can pull these images as <code>Singularity</code> images using the following command (used on Fred Hutch cluster):</p>
+<p>```bash
+singularity pull docker://<image_name:tag></p>
+<h1 id="example_2">example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h1>
+<p>singularity pull docker://ghcr.io/rasilab/project_repo:0.1.0
+```</p>
+</li>
+<li>
+<p>Note that <code>Docker</code> is not allowed on the Fred Hutch cluster. You can use <code>Singularity</code> images instead.</p>
+</li>
 </ul>
 
               
