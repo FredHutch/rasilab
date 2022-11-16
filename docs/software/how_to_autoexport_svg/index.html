@@ -70,11 +70,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#homerasibinbash" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -380,8 +375,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -399,37 +392,38 @@
 
 
 
+  <h1>How to autoexport svg</h1>
+
 <p>We use the <a href="http://www.linux-magazine.com/Issues/2014/158/Monitoring-with-incron">incron</a> utility to automatically run an export script every time you save an SVG file in a specific directory.</p>
 <ol>
 <li>
 <p>Install <code>incrontab</code>.</p>
-<p><code>bash
-sudo apt install incron</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo apt install incron
+</code></pre></div>
 </li>
 <li>
 <p>Allow your username to create <code>incron</code> rules.</p>
-<p><code>bash
-sudo echo "MY_USERNAME" &gt;&gt; /etc/incron.allow</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo <span class="nb">echo</span> <span class="s2">&quot;MY_USERNAME&quot;</span> &gt;&gt; /etc/incron.allow
+</code></pre></div>
 </li>
 <li>
 <p>Write a script that exports SVG files to PNG files.</p>
 <p>The script is located <a href="https://github.com/rasilab/rasi_xps15_config/blob/rasi/update_slides.sh">here</a> in the <a href="https://github.com/rasilab/rasi_xps15_config">rasi<sub>xps15config</sub></a> repo. You have most likely pulled this repo to your <code>~/git</code> folder already.</p>
-<p>``` bash</p>
-<h1 id="homerasibinbash">!/home/rasi/bin/bash<a class="headerlink" href="#homerasibinbash" title="Permanent link">&para;</a></h1>
-<p>filepath=$1$2
-newname=${filepath//svg/png}
-echo $filepath $newname
-inkscape --export-png=$newname --export-dpi=144 $filepath
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="ch">#!/home/rasi/bin/bash</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nv">filepath</span><span class="o">=</span><span class="nv">$1$2</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nv">newname</span><span class="o">=</span><span class="si">${</span><span class="nv">filepath</span><span class="p">//svg/png</span><span class="si">}</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nb">echo</span> <span class="nv">$filepath</span> <span class="nv">$newname</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>inkscape --export-png<span class="o">=</span><span class="nv">$newname</span> --export-dpi<span class="o">=</span><span class="m">144</span> <span class="nv">$filepath</span>
+</code></pre></div>
 </li>
 <li>
 <p>Set up <code>incron</code> to run the export script when you modify files in a specific directory. This is usually the directory containing the SVG files.</p>
 <p>Open the <code>incrontab</code> file in your default text editor.</p>
-<p><code>bash
-incrontab -e # this will usually open the incron file in vim or nano</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>incrontab -e <span class="c1"># this will usually open the incron file in vim or nano</span>
+</code></pre></div>
 <p>Add the following line modifying the target directory and the script location as appropriate.</p>
-<pre><code>/home/rasi/git/rasidocs/presentations/20190413_bsd_faculty_lunch/svg/ IN_MODIFY bash /home/rasi/git/rasi_xps15_config/update_slides.sh $@ $#
-</code></pre>
+<div class="highlight"><pre><span></span><code>/home/rasi/git/rasidocs/presentations/20190413_bsd_faculty_lunch/svg/ IN_MODIFY bash /home/rasi/git/rasi_xps15_config/update_slides.sh $@ $#
+</code></pre></div>
 </li>
 <li>
 <p>Now anytime you are working on a new presentation, just do Step 4 above to update the location of your SVG files.</p>

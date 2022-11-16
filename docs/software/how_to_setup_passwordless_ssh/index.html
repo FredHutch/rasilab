@@ -70,11 +70,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#accept-all-defaults" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -380,8 +375,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -399,43 +392,42 @@
 
 
 
+  <h1>How to setup passwordless ssh</h1>
+
 <ol>
 <li>
 <p>Check whether you have a public RSA key to share on your local computer. This means that you should have a file named <code>~/.ssh/id_rsa.pub</code>. If so, skip next step.</p>
 </li>
 <li>
 <p>If you don't have a public RSA key, generate one using the following command accepting all default suggestions by pressing <code>Enter</code>:</p>
-<p>``` bash</p>
-<h1 id="accept-all-defaults">Accept all defaults<a class="headerlink" href="#accept-all-defaults" title="Permanent link">&para;</a></h1>
-<p>ssh-keygen -t rsa
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Accept all defaults</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>ssh-keygen -t rsa
+</code></pre></div>
 </li>
 <li>
 <p>Create a profile for the remote computer on your local computer by adding the following to your <code>~/.ssh/config</code> file. Create this file if it does not exist. Note that you need to know the IP address of the remote machine you are logging onto (Can be gotten by typing <code>hostname -I</code> on the remote machine). Replace the machine name (anything you want), username and IP address below as appropriate.</p>
-<p>``` bash</p>
-<h1 id="common-lab-computer">Common Lab Computer<a class="headerlink" href="#common-lab-computer" title="Permanent link">&para;</a></h1>
-<p>Host REMOTE
-User REMOTE_USERNAME
-HostName XXX.XXX.XX.XXX
-Compression yes
-ForwardX11 yes
-ControlMaster auto
-ControlPath ~/.ssh/%r@%h:%p
-ServerAliveInterval 15
-ServerAliveCountMax 3
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Common Lab Computer</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>Host REMOTE
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>User REMOTE_USERNAME
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>HostName XXX.XXX.XX.XXX
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>Compression yes
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>ForwardX11 yes
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>ControlMaster auto
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>ControlPath ~/.ssh/%r@%h:%p
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>ServerAliveInterval <span class="m">15</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>ServerAliveCountMax <span class="m">3</span>
+</code></pre></div>
 </li>
 <li>
 <p>Create a <code>~/.ssh</code> directory on the remote computer if it does not exist already (You can log on once with password a check if this directory exists). If this directory exists, skip this step. Replace <code>REMOTE</code> below with the name of the computer you are logging onto (that one you gave in the <code>HOST</code> field above).</p>
-<p><code>bash
-ssh REMOTE mkdir -p .ssh</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>ssh REMOTE mkdir -p .ssh
+</code></pre></div>
 </li>
 <li>
 <p>Send your public RSA key to the remote computer. Replace <code>REMOTE</code> below with the name of the computer you are logging onto (that one you gave in the <code>HOST</code> field above).</p>
-<p>``` bash</p>
-<h1 id="send-your-public-key-to-remote">Send your public key to REMOTE<a class="headerlink" href="#send-your-public-key-to-remote" title="Permanent link">&para;</a></h1>
-<p>cat .ssh/id_rsa.pub | ssh REMOTE 'cat &gt;&gt; .ssh/authorized_keys'
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Send your public key to REMOTE</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>cat .ssh/id_rsa.pub <span class="p">|</span> ssh REMOTE <span class="s1">&#39;cat &gt;&gt; .ssh/authorized_keys&#39;</span>
+</code></pre></div>
 </li>
 <li>
 <p>Now you should be able to do <code>ssh REMOTE</code> and login without a password.</p>

@@ -70,11 +70,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#accept-all-defaults" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -380,8 +375,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -399,95 +392,96 @@
 
 
 
+  <h1>How to install common lab software on ubuntu</h1>
+
 <ol>
 <li>
 <p>Open a terminal. Make sure you have permission to install as a root by typing in the command line:</p>
-<p><code>bash
-sudo ls</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo ls
+</code></pre></div>
 <p>You will be asked for your password and if you get no error, then you are ready to work as a root.</p>
 </li>
 <li>
 <p>Install <code>git</code> for version control:</p>
-<p><code>bash
-sudo apt install git</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo apt install git
+</code></pre></div>
 </li>
 <li>
 <p>Download Rasi's configuration files from Github and symbolically link them by following <a href="../how_to_use_rasi_desktop_configuration_files/">these</a> instructions.</p>
 </li>
 <li>
 <p>Install <code>vim</code> for text editing:</p>
-<p><code>bash
-sudo apt install vim</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo apt install vim 
+</code></pre></div>
 </li>
 <li>
 <p>Add the <code>emacs</code> Ubuntu package repository to your system and install the latest version of <code>emacs</code>. See <a href="../how_to_install_emacs_on_ubuntu/">here</a> for more instructions on installing <code>emacs</code>.</p>
-<p><code>bash
-sudo add-apt-repository ppa:ubuntu-elisp/ppa
-sudo apt update
-sudo apt install emacs-snapshot</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo add-apt-repository ppa:ubuntu-elisp/ppa
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>sudo apt update
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>sudo apt install emacs-snapshot
+</code></pre></div>
 </li>
 <li>
 <p>Set up password-less authentication to Github:</p>
-<pre><code>sudo apt install libsecret-1-dev
+<div class="highlight"><pre><span></span><code>sudo apt install libsecret-1-dev
 cd /usr/share/doc/git/contrib/credential/libsecret/
 sudo make
 git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
-</code></pre>
+</code></pre></div>
 <p>After you do the above, you should be able to login once to Github and not have to enter your credentials again.</p>
 </li>
 <li>
 <p>Download and install <code>conda</code> for installing <code>python</code> and <code>R</code> packages inside virtual environments. When it asks for the path to install, I usually put it inside my <code>~/lib</code> folder instead of my home folder.</p>
-<p><code>bash
-cd ~/lib
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-sh Miniconda3-latest-Linux-x86_64.sh 
-conda activate base</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">cd</span> ~/lib
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>sh Miniconda3-latest-Linux-x86_64.sh 
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>conda activate base
+</code></pre></div>
 </li>
 <li>
 <p>Install <code>autojump</code> for navigation. It will ask you to copy-paste a line into your <code>~/.bashrc</code>. Do this by replacing the corresponding similar lines from Heungwon's version of <code>~/.bashrc</code>.</p>
-<p><code>bash
-cd ~/git/
-git clone git://github.com/wting/autojump.git
-cd autojump/
-./install.py</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">cd</span> ~/git/
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>git clone git://github.com/wting/autojump.git
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nb">cd</span> autojump/
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>./install.py 
+</code></pre></div>
 9.  Install <code>RStudio</code> for data analysis from <a href="http://www.rstudio.com/products/rstudio/download/">http://www.rstudio.com/products/rstudio/download/</a>.</p>
 </li>
 <li>
 <p>Add the <code>libreoffice</code> Ubuntu package repository to your system and install the latest version of <code>libreoffice</code> for spreadsheet and word editor:</p>
-<p><code>bash
-sudo add-apt-repository ppa:libreoffice/ppa
-sudo apt update
-sudo apt install libreoffice</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>sudo add-apt-repository ppa:libreoffice/ppa
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>sudo apt update
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>sudo apt install libreoffice
+</code></pre></div>
 </li>
 <li>
 <p>Add the <code>inkscape</code> Ubuntu package repository to your system and install the latest version of <code>inkscape</code> for drawing vector graphics:</p>
-<p><code>bash
-sudo add-apt-repository ppa:inkscape.dev/stable
-sudo apt update
-sudo apt-get install inkscape</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo add-apt-repository ppa:inkscape.dev/stable
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>sudo apt update
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>sudo apt-get install inkscape
+</code></pre></div>
 </li>
 <li>
 <p>Install <code>ssh</code> packages for remote connections. Then make sure your <code>ssh</code> configuration file is symbolically linked as described <a href="../how_to_use_rasi_desktop_configuration_files/">here</a>.</p>
-<p><code>bash
-sudo apt install openssh-server
-sudo apt install sshfs</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sudo apt install openssh-server
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>sudo apt install sshfs
+</code></pre></div>
 </li>
 <li>
 <p>Set up password-less authentication to the Hutch server <code>rhino</code>:</p>
-<p>``` bash</p>
-<h1 id="accept-all-defaults">Accept all defaults<a class="headerlink" href="#accept-all-defaults" title="Permanent link">&para;</a></h1>
-<p>ssh-keygen -t rsa</p>
-<h1 id="create-directory-for-config-on-rhino">Create directory for config on rhino<a class="headerlink" href="#create-directory-for-config-on-rhino" title="Permanent link">&para;</a></h1>
-<p>ssh rhino3 mkdir -p .ssh</p>
-<h1 id="send-your-public-key-to-rhino">Send your public key to rhino<a class="headerlink" href="#send-your-public-key-to-rhino" title="Permanent link">&para;</a></h1>
-<p>cat .ssh/id_rsa.pub | ssh rhino3 'cat &gt;&gt; .ssh/authorized_keys'
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Accept all defaults</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>ssh-keygen -t rsa
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1"># Create directory for config on rhino</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>ssh rhino3 mkdir -p .ssh
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="c1"># Send your public key to rhino</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>cat .ssh/id_rsa.pub <span class="p">|</span> ssh rhino3 <span class="s1">&#39;cat &gt;&gt; .ssh/authorized_keys&#39;</span>
+</code></pre></div>
 </li>
 <li>
 <p>Install <code>google-chrome</code> web browser:</p>
-<p><code>bash
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.de</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>sudo dpkg -i google-chrome-stable_current_amd64.de
+</code></pre></div>
 </li>
 <li>
 <p>I also install useful applications such as <code>imagej</code> (Images), <code>zotero</code> (Bibliography), <code>gnome-tweak-tool</code> (Desktop customization), <code>okular</code> (PDF annotation), <code>slack</code> (Team communication), <code>texlive</code> (Latex and PDF creation).</p>

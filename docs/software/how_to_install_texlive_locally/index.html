@@ -395,18 +395,18 @@
   <h1>How to install texlive locally</h1>
 
 <p>Download latest version of Tex Live to your <code>~/downloads/</code> folder and unzip it.</p>
-<pre><code class="language-bash">cd ~/downloads/
-wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-tar -xvzf install-tl-unx.tar.gz
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">cd</span> ~/downloads/
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>tar -xvzf install-tl-unx.tar.gz
+</code></pre></div>
 <p>Optional: If you already have Tex Live installed and want to install all the LaTeX packages that you have, get the list of installed packages in your current Tex Live configuration and save it to <code>installed_texlive_packaged.txt</code>.</p>
-<pre><code class="language-bash">tlmgr list --only-installed &gt; installed_texlive_packages.txt
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>tlmgr list --only-installed &gt; installed_texlive_packages.txt
+</code></pre></div>
 <p>Create the folder for installation. Replace <code>rasi</code> by your username.</p>
-<pre><code class="language-bash">mkdir /home/rasi/lib/texlive
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>mkdir /home/rasi/lib/texlive
+</code></pre></div>
 <p>Create the following profile file <code>texlive.profile</code> for installation replacing <code>rasi</code> your username in the folders below. Put this file in the unzipped folder <code>install-tl</code> that you created above.</p>
-<pre><code>selected_scheme scheme-minimal
+<div class="highlight"><pre><span></span><code>selected_scheme scheme-minimal
 TEXDIR /home/rasi/lib/texlive/2018
 TEXMFCONFIG /home/rasi/lib/texlive/texmf-config
 TEXMFHOME /home/rasi/lib/texlive/texmf
@@ -433,16 +433,16 @@ tlpdbopt_sys_bin /home/rasi/bin
 tlpdbopt_sys_info /home/rasi/lib/texlive/info
 tlpdbopt_sys_man /home/rasi/lib/texlive/man
 tlpdbopt_w32_multi_user 0
-</code></pre>
+</code></pre></div>
 <p>Install texlive. Make sure you are in the unzipped directory above.</p>
-<pre><code class="language-bash">./install-tl --profile=texlive.profile
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>./install-tl --profile<span class="o">=</span>texlive.profile
+</code></pre></div>
 <p>Optional: Install all the packages from the list you created from your previous Tex Live installation.</p>
-<pre><code class="language-bash">for package in `grep -oP &quot;i \K\w+&quot; installed_texlive_packages.txt`; do ./tlmgr install $package; done
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">for</span> package <span class="k">in</span> <span class="sb">`</span>grep -oP <span class="s2">&quot;i \K\w+&quot;</span> installed_texlive_packages.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> ./tlmgr install <span class="nv">$package</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>
 <p>Create symbolic links for use from any location.</p>
-<pre><code class="language-bash">ln -s ~/lib/texlive/2018/bin/x86_64-linux/ ~/bin/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>ln -s ~/lib/texlive/2018/bin/x86_64-linux/ ~/bin/
+</code></pre></div>
 
               
             </article>

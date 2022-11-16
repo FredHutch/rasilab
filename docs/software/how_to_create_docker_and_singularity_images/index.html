@@ -401,27 +401,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    example
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example_1" class="md-nav__link">
-    example
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example_2" class="md-nav__link">
-    example
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -440,6 +419,8 @@
 
 
 
+  <h1>How to create docker and singularity images</h1>
+
 <h2 id="file-organization">File organization<a class="headerlink" href="#file-organization" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -449,10 +430,10 @@
 <p>We have two types of Docker images:</p>
 <ol>
 <li>
-<p>Images for generic analyses and writing such as [this]https://github.com/rasilab/project_repo/pkgs/container/project_repo) one.</p>
+<p>Images for generic analyses and writing such as <a href="https://github.com/rasilab/project_repo/pkgs/container/project_repo">this</a> image.</p>
 </li>
 <li>
-<p>Images specific to an analysis pipeline such as <a href="https://github.com/orgs/rasilab/packages/container/package/codon_optimality_mammalian_cells%2Fissue44_dual_sgrna_linkage">this</a> one.</p>
+<p>Images specific to an analysis pipeline such as <a href="https://github.com/orgs/rasilab/packages/container/package/codon_optimality_mammalian_cells%2Fissue44_dual_sgrna_linkage">this</a> image.</p>
 </li>
 </ol>
 </li>
@@ -471,19 +452,18 @@
 </li>
 <li>
 <p>Build the Docker image from the folder that contains the <code>Dockerfile</code>. Give a specific tag (see below for tag convention).</p>
-<p>```bash
-docker build -t <image_name:tag> .</p>
-<h1 id="example">example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h1>
-<p>docker build -t ghcr.io/rasilab/project_repo:0.1.0 .
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>docker build -t &lt;image_name:tag&gt; .
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># example</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>docker build -t ghcr.io/rasilab/project_repo:0.1.0 .
+</code></pre></div>
 </li>
 <li>
 <p>Assuming the above build command is successful, first commit and tag the <code>Dockerfile</code>. </p>
-<p><code>bash
-git add Dockerfile
-git commit -m "Update Dockerfile with &lt;software&gt;"
-git tag -a &lt;tag&gt; -m "Update Dockerfile with &lt;software&gt;"
-git push origin &lt;tag&gt;</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git add Dockerfile
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>git commit -m <span class="s2">&quot;Update Dockerfile with &lt;software&gt;&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>git tag -a &lt;tag&gt; -m <span class="s2">&quot;Update Dockerfile with &lt;software&gt;&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>git push origin &lt;tag&gt;
+</code></pre></div>
 </li>
 <li>
 <p>We use the same tag for the <code>Dockerfile</code> and the <code>image</code>. The tags follow the <a href="https://semver.org/">semantic versioning</a> convention. In practice, this means:</p>
@@ -504,19 +484,17 @@ git push origin &lt;tag&gt;</code></p>
 </li>
 <li>
 <p>Push the Docker image to the GitHub container registry.</p>
-<p>```bash
-docker push <image_name:tag></p>
-<h1 id="example_1">example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h1>
-<p>docker push ghcr.io/rasilab/project_repo:0.1.0
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>docker push &lt;image_name:tag&gt;
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># example</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>docker push ghcr.io/rasilab/project_repo:0.1.0
+</code></pre></div>
 </li>
 <li>
 <p>You can pull these images as <code>Singularity</code> images using the following command (used on Fred Hutch cluster):</p>
-<p>```bash
-singularity pull docker://<image_name:tag></p>
-<h1 id="example_2">example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h1>
-<p>singularity pull docker://ghcr.io/rasilab/project_repo:0.1.0
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>singularity pull docker://&lt;image_name:tag&gt;
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1"># example</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>singularity pull docker://ghcr.io/rasilab/project_repo:0.1.0
+</code></pre></div>
 </li>
 <li>
 <p>Note that <code>Docker</code> is not allowed on the Fred Hutch cluster. You can use <code>Singularity</code> images instead.</p>

@@ -410,19 +410,19 @@
 </li>
 <li>
 <p>Install <code>git</code> on your computer if you do not have it already:</p>
-<p><code>bash
-sudo apt install git</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo apt install git
+</code></pre></div>
 </li>
 <li>
 <p>Create a local <code>git</code> directory in your computer if you don't have one already by typing the following into a terminal. Note that the base directory can be slightly different in Mac and Windows machines. Adjust the commands below accordingly. It does not matter where exactly you create the <code>git</code> directory, but I usually create it in my home directory where I store all my repositories.</p>
-<p><code>bash
-mkdir /home/USER/git
-cd /home/USER/git</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>mkdir /home/USER/git
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">cd</span> /home/USER/git
+</code></pre></div>
 </li>
 <li>
 <p>Clone the labwebsite repository into your <code>/home/USER/git</code> directory. This will create a directory called <code>labwebsite</code> in your local <code>git</code> directory. You will have to enter your Github username and password here.</p>
-<p><code>bash
-git clone https://github.com/rasilab/labwebsite.git .</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git clone https://github.com/rasilab/labwebsite.git .
+</code></pre></div>
 </li>
 <li>
 <p>Then copy the file <code>git/labwebsite/members/_posts/2015-01-01-arvind-rasi-subramaniam.md</code> to a new file in the same directory. Rename the file by replacing Rasi's name by your name and add today's date. Edit contents of the file following the same template. You can look at profiles of other lab members for reference.</p>
@@ -435,12 +435,12 @@ git clone https://github.com/rasilab/labwebsite.git .</code></p>
 </li>
 <li>
 <p>Once you are satisfied with the changes, add the files you created to git repo, commit them with a message, and push them to <a href="http://github.com/rasilab/labwebsite">http://github.com/rasilab/labwebsite</a>. You will have to enter your Github username and password here.</p>
-<p><code>bash
-git add PATH_TO_MARKDOWN_FILE_YOU_CREATED
-git add PATH_TO_IMAGE_FILE_YOU_CREATED
-git add PATH_TO_PDF_FILE_YOU_CREATED
-git commit -m "Added rasi subramaniam to lab website" 
-git push -u origin master</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>git add PATH_TO_MARKDOWN_FILE_YOU_CREATED
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>git add PATH_TO_IMAGE_FILE_YOU_CREATED
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>git add PATH_TO_PDF_FILE_YOU_CREATED
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>git commit -m <span class="s2">&quot;Added rasi subramaniam to lab website&quot;</span> 
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>git push -u origin master 
+</code></pre></div>
 </li>
 <li>
 <p>Repeat the above steps of making changes and then the add, commit, push cycle till you are satisfied with all the changes.</p>

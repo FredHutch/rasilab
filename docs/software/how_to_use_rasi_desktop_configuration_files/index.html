@@ -395,38 +395,38 @@
   <h1>How to use rasi desktop configuration files</h1>
 
 <p>Create a <code>~/git</code> directory if you do not already have one and go in:</p>
-<pre><code class="language-bash">mkdir -p ~/git
-cd ~/git
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>mkdir -p ~/git
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span> ~/git
+</code></pre></div>
 <p>Clone Rasi's configuration repository and go in:</p>
-<pre><code class="language-bash">git clone https://github.com/rasilab/rasi_xps15_config.git
-cd rasi_xps15_config
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git clone https://github.com/rasilab/rasi_xps15_config.git
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">cd</span> rasi_xps15_config
+</code></pre></div>
 <p>Change to <code>hpark</code> branch since Rasi's branch is more complex than necessary:</p>
-<pre><code class="language-bash">git checkout --track origin/hpark
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git checkout --track origin/hpark
+</code></pre></div>
 <p>Create a new branch for yourself from <code>hpark</code> branch:</p>
-<pre><code class="language-bash">git checkout -b MYUSERNAME
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>git checkout -b MYUSERNAME
+</code></pre></div>
 <p>Create symbolic links to default locations. For example, you will do this for <code>emacs</code>, <code>bash</code>, <code>ssh</code>, <code>git</code>:</p>
-<pre><code class="language-bash">cd ~
-rm -r .emacs .emacs.d .bashrc .bash_aliases
-ln -s ~/git/rasi_xps15_config/emacs .emacs
-ln -s ~/git/rasi_xps15_config/emacs.d .emacs.d
-ln -s ~/git/rasi_xps15_config/bash/bashrc .bashrc
-ln -s ~/git/rasi_xps15_config/bash/bash_aliases .bash_aliases
-ln -s ~/git/rasi_xps15_config/bash/bash_history .bash_history
-ln -s ~/git/rasi_xps15_config/git/gitconfig .gitconfig
-cd ~/.ssh
-ln -s ~/git/rasi_xps15_config/ssh/config config
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">cd</span> ~
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>rm -r .emacs .emacs.d .bashrc .bash_aliases
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>ln -s ~/git/rasi_xps15_config/emacs .emacs
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>ln -s ~/git/rasi_xps15_config/emacs.d .emacs.d
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>ln -s ~/git/rasi_xps15_config/bash/bashrc .bashrc
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>ln -s ~/git/rasi_xps15_config/bash/bash_aliases .bash_aliases
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>ln -s ~/git/rasi_xps15_config/bash/bash_history .bash_history
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>ln -s ~/git/rasi_xps15_config/git/gitconfig .gitconfig
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="nb">cd</span> ~/.ssh
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>ln -s ~/git/rasi_xps15_config/ssh/config config
+</code></pre></div>
 <p>Edit these files as you wish to customize for yourself. You will definitely want to modify your <code>~/.gitconfig</code> to include your name and email.</p>
 <p>Once you are done, commit the changes to your configuration file to github</p>
-<pre><code class="language-bash">cd ~/git/rasi_xps15_config
-git add -u
-git commit -m &quot;adapted rasi's configuration file first attempt&quot;
-git push -u origin MYUSERNAME # use the same branch name that you used in the checkout step
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">cd</span> ~/git/rasi_xps15_config
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>git add -u
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>git commit -m <span class="s2">&quot;adapted rasi&#39;s configuration file first attempt&quot;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>git push -u origin MYUSERNAME <span class="c1"># use the same branch name that you used in the checkout step</span>
+</code></pre></div>
 
               
             </article>

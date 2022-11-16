@@ -415,29 +415,29 @@
   <h1>How to install emacs on ubuntu</h1>
 
 <p>First make sure you have permission to install as a root by typing in the command line:</p>
-<pre><code class="language-bash">sudo ls
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo ls
+</code></pre></div>
 <p>You will be asked for your password and if you get no error, then you are ready to work as a root.</p>
 <p>Add the Emacs Ubuntu package repository to your system:</p>
-<pre><code class="language-bash">sudo add-apt-repository ppa:ubuntu-elisp/ppa
-sudo apt-get update
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo add-apt-repository ppa:ubuntu-elisp/ppa
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo apt-get update
+</code></pre></div>
 <p>Install the latest snapshot of Emacs:</p>
-<pre><code class="language-bash">sudo apt-get install emacs-snapshot
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo apt-get install emacs-snapshot
+</code></pre></div>
 <p>Use Rasi's configuration files for <code>.emacs</code> and <code>.emacs.d</code> following the instructions in <a href="../how_to_use_rasi_desktop_configuration_files/">file:how_to_use_rasi_desktop_configuration_files.org</a>.</p>
 <p>Now you should be able to open Emacs without any error.</p>
 <h2 id="org2blog-setup">Org2Blog setup<a class="headerlink" href="#org2blog-setup" title="Permanent link">&para;</a></h2>
 <p>If you are setting up <code>org2blog</code> for your lab notebook, you will want to push to your lab notebook instead of <code>hpark</code> by modifying the URL and username in the following lines in your <code>~/.emacs</code> file.</p>
-<pre><code class="language-commonlisp">(setq org2blog/wp-blog-alist
-      '((&quot;ln&quot;
-         :url &quot;http://rasilab.org/ln/hpark/xmlrpc.php&quot;
-         :username &quot;hpark234&quot;
-         :default-title &quot;XXX&quot;
-         :default-categories (&quot;experiments&quot;)
-         :tags-as-categories nil)
-         ))
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>(setq org2blog/wp-blog-alist
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>      &#39;((&quot;ln&quot;
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>         :url &quot;http://rasilab.org/ln/hpark/xmlrpc.php&quot;
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>         :username &quot;hpark234&quot;
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>         :default-title &quot;XXX&quot;
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>         :default-categories (&quot;experiments&quot;)
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>         :tags-as-categories nil)
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>         ))
+</code></pre></div>
 <p>Once you have the above setup correctly, you should be able to create a new lab notebook page by <code>M-x b n</code> (<code>Blog New</code>). You can push to the lab notebook site by <code>M-x b p</code> (<code>Blog Push</code>).</p>
 
               

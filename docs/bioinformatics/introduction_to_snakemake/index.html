@@ -415,14 +415,14 @@
 </li>
 <li>
 <p>Expand wildcards within the script as:</p>
-<p><code>python
-expand("processed_data/{sample}.{replicate}.bam", sample=["A", "B"], replicate=[0, 1])</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">expand</span><span class="p">(</span><span class="s2">&quot;processed_data/</span><span class="si">{sample}</span><span class="s2">.</span><span class="si">{replicate}</span><span class="s2">.bam&quot;</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">replicate</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
 </li>
 <li>
 <p>In the <code>shell</code> field, we can refer to subfields in the <code>input</code> and <code>output</code> field by a dot prefix:</p>
-<p><code>python
-shell:
-    "samtools mpileup -g -f {input.fa} {input.bam} | "</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">shell</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    <span class="s2">&quot;samtools mpileup -g -f </span><span class="si">{input.fa}</span><span class="s2"> </span><span class="si">{input.bam}</span><span class="s2"> | &quot;</span>
+</code></pre></div>
 </li>
 <li>
 <p>Note that <code>Snakemake</code> fields are available to target <code>Python</code>, <code>R</code>, <code>Rmarkdown</code> scripts in the <code>script</code> field as <code>snakemake</code> objects. See <a href="https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#snakefiles-external-scripts">here</a>.</p>

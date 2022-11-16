@@ -485,7 +485,8 @@
 <li>Raw data and sample annotations should be copied from AWS S3 into <code>analysis/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/data/</code>. For multistep analysis such deep sequencing where you generate lot of processed data,  store your raw data in a subfolder of <code>data</code> such as <code>fastq</code>.</li>
 <li>Copy files from AWS S3 to the <code>data</code> folder using the following <code>aws cli</code>command. Store this command as <code>aws_s3_cp.sh</code> in the <code>data</code> folder and commit it to GitHub so that you can easily run it again the next time you want to perform the analysis.</li>
 </ul>
-<p><code>aws cp s3://fh-pi-subramaniam-a-eco/data/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/ .</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>aws cp s3://fh-pi-subramaniam-a-eco/data/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/ .
+</code></pre></div>
 <ul>
 <li>Commit README.md, scripts and small image and tables (&lt;1MB) to GitHub. </li>
 <li>All tables should be in CSV or TSV format and not in XLS or ODS format.</li>
@@ -497,19 +498,19 @@
 <p>We perform simple analyses on the cluster from within VSCode using the Remote SSH extension. For more comple analyses that need to run over multiple days, we run commands from <code>tmux</code> session on the cluster to preserve the session if the connection is lost.</p>
 <h3 id="simple-analyses">Simple analyses<a class="headerlink" href="#simple-analyses" title="Permanent link">&para;</a></h3>
 <p>For quick analysis on the cluster with a single script (such as for a flow experiment), use one of the pre-created <code>conda</code> environments that mirrors our lab's <code>project_repo</code> folder. You can list all available environments in the cluster using the following command. You should be also able to see the corresponding Jupyter kernel in VSCode.</p>
-<pre><code>```bash 
+<div class="highlight"><pre><span></span><code>```bash 
 conda info --envs
 ```
-</code></pre>
+</code></pre></div>
 <p>If you want to create such an environment from a <code>Dockerfile</code>, convert the <code>mamba create</code> and <code>mamba install</code> commands for that environment into a shell script and run it.</p>
 <h3 id="multi-step-analyses">Multi-step analyses<a class="headerlink" href="#multi-step-analyses" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Either use one of our lab's predefined <code>singularity</code> containers pulled from our lab's <a href="https://github.com/orgs/rasilab/packages">package repository</a> or create your own <code>singularity</code> container from a <code>Dockerfile</code> file.</li>
 <li>
 <p>To pull a <code>singularity</code> container from our lab's package repository, use the following command. Use a specific version number such as <code>1.3.0</code> instead of <code>latest</code> so that you can identify the container version easily.</p>
-<p><code>bash
-module load Singularity # Fred Hutch specific.
-singularity pull docker://ghcr.io/rasilab/&lt;container_name&gt;:VERSION_NUMBER</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>module load Singularity <span class="c1"># Fred Hutch specific.</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>singularity pull docker://ghcr.io/rasilab/&lt;container_name&gt;:VERSION_NUMBER
+</code></pre></div>
 </li>
 <li>
 <p>To create your own <code>singularity</code> containers, follow <a href="">TBD</a> steps to create a <code>Docker</code> container from a <code>Dockerfile</code> and push it to the lab package repository. Then pull the container from the package repository as above.</p>

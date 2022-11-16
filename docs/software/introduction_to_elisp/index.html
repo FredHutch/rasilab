@@ -399,29 +399,29 @@
 <li>Each <code>cons cell</code> is made of a <code>car</code> (key) and <code>cdr</code> (value) in the case of an associative list, <code>alist</code>.</li>
 <li>In a typical <code>list</code>, the <code>car</code> points to the next <code>cons cell</code>.</li>
 </ul>
-<pre><code class="language-commonlisp">(defun hello (someone)
-    &quot;Say hello to SOMEONE via M-x hello.&quot;
-    (interactive &quot;sWho do you want to say hello to? &quot;)
-    (message &quot;Hello %s!&quot; someone))
-</code></pre>
-<pre><code class="language-example">hello
-</code></pre>
-<pre><code class="language-commonlisp">(defun foo (&amp;optional print-message)
-       (interactive &quot;p&quot;)
-       (when print-message
-         (message &quot;foo&quot;)))
-</code></pre>
-<pre><code class="language-example">foo
-</code></pre>
-<pre><code class="language-commonlisp">(let ((words))
-  (save-excursion
-    (goto-char 0)
-    (while (re-search-forward &quot;\\w+&quot; (point-max) t)
-      (let ((word (match-string-no-properties 0)))
-        (cl-incf (cdr (or (assoc word words)
-                          (first (push (cons word 0) words)))))))
-    (reverse (sort words (lambda (a b) (&lt; (cdr a) (cdr b)))))))
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>(defun hello (someone)
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    &quot;Say hello to SOMEONE via M-x hello.&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    (interactive &quot;sWho do you want to say hello to? &quot;)
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    (message &quot;Hello %s!&quot; someone))
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>hello
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>(defun foo (&amp;optional print-message)
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>       (interactive &quot;p&quot;)
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>       (when print-message
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>         (message &quot;foo&quot;)))
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>foo
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>(let ((words))
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  (save-excursion
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    (goto-char 0)
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    (while (re-search-forward &quot;\\w+&quot; (point-max) t)
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>      (let ((word (match-string-no-properties 0)))
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>        (cl-incf (cdr (or (assoc word words)
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>                          (first (push (cons word 0) words)))))))
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    (reverse (sort words (lambda (a b) (&lt; (cdr a) (cdr b)))))))
+</code></pre></div>
 
               
             </article>

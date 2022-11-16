@@ -409,11 +409,11 @@
 <p>When you are working with large images, the file can get bloated and Inkscape can become very sluggish. This is solved by periodically doing <code>File → Clean up document</code>.</p>
 <h1 id="create-custom-keyboard-shortcuts">Create custom keyboard shortcuts<a class="headerlink" href="#create-custom-keyboard-shortcuts" title="Permanent link">&para;</a></h1>
 <p>I often find myself repeating an action continuously. Doing this by clicking on menus and choosing the option gets annoying. You can set custom keyboard shortcuts by editing your <code>~/.config/inkscape/keys/default.xml</code>. For example, I added the following lines to bind <code>Ctrl + Alt + Shft + F</code> to resize the document to objects or selection.</p>
-<pre><code>&lt;bind
-    key="F"
-    modifiers="Ctrl,Alt,Shift"
-    action="FitCanvasToSelectionOrDrawing" /&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code>&lt;bind
+    key=&quot;F&quot;
+    modifiers=&quot;Ctrl,Alt,Shift&quot;
+    action=&quot;FitCanvasToSelectionOrDrawing&quot; /&gt;
+</code></pre></div>
 <h1 id="convert-svg-to-png-automatically">Convert SVG to PNG automatically<a class="headerlink" href="#convert-svg-to-png-automatically" title="Permanent link">&para;</a></h1>
 <p>When I make presentation slides in Inkscape, I need to convert the <code>.svg</code> files to <code>.png</code> files for display using <code>reveal.js</code>. I do this automatically by:</p>
 <ol>
@@ -422,18 +422,17 @@
 </li>
 <li>
 <p>Save the following <code>bash</code> script at <code>~/.config/update_slides.sh</code>.</p>
-<p>``` bash</p>
-<h1 id="homerasibinbash">!/home/rasi/bin/bash<a class="headerlink" href="#homerasibinbash" title="Permanent link">&para;</a></h1>
-<p>filepath=$1$2
-newname=${filepath//svg/png}
-echo $filepath $newname
-inkscape --export-png=$newname --export-dpi=144 $filepath
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="ch">#!/home/rasi/bin/bash</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nv">filepath</span><span class="o">=</span><span class="nv">$1$2</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nv">newname</span><span class="o">=</span><span class="si">${</span><span class="nv">filepath</span><span class="p">//svg/png</span><span class="si">}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nb">echo</span> <span class="nv">$filepath</span> <span class="nv">$newname</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>inkscape --export-png<span class="o">=</span><span class="nv">$newname</span> --export-dpi<span class="o">=</span><span class="m">144</span> <span class="nv">$filepath</span>
+</code></pre></div>
 </li>
 <li>
 <p>Add the directory you are monitoring for file to your <code>incrontab</code> list. For this, first type <code>incrontab -e</code>. Then add the following line:</p>
-<p><code>bash
-/home/rasi/Dropbox/work/presentations/20180912_bpsd_talk/svg/ IN_MODIFY bash /home/rasi/.config/update_slides.sh $@ $#</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>/home/rasi/Dropbox/work/presentations/20180912_bpsd_talk/svg/ IN_MODIFY bash /home/rasi/.config/update_slides.sh <span class="nv">$@</span> <span class="nv">$#</span>
+</code></pre></div>
 </li>
 <li>
 <p>In the above case, I am monitoring the <code>svg</code> subfolder of my parent folder for changes and adding the new <code>.png</code> files to the <code>png</code> subfolder.</p>

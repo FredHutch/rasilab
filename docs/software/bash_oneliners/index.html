@@ -500,33 +500,33 @@
 </ul>
 <h2 id="export-inkscape-svg-files-to-eps-for-plos-journals">Export Inkscape SVG files to EPS for PLOS journals<a class="headerlink" href="#export-inkscape-svg-files-to-eps-for-plos-journals" title="Permanent link">&para;</a></h2>
 <p><code>-T</code> converts text to outlines so that fonts do not have to be embedded.</p>
-<pre><code class="language-bash">for file in *.svg; do inkscape -T -o ${file/svg/eps} $file; done
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">for</span> file <span class="k">in</span> *.svg<span class="p">;</span> <span class="k">do</span> inkscape -T -o <span class="si">${</span><span class="nv">file</span><span class="p">/svg/eps</span><span class="si">}</span> <span class="nv">$file</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>
 <h2 id="print-only-the-top-25-reads-from-a-fastq-file">Print only the top 25 reads from a FASTQ file<a class="headerlink" href="#print-only-the-top-25-reads-from-a-fastq-file" title="Permanent link">&para;</a></h2>
-<pre><code class="language-bash">zcat &lt;FASTQ.GZ&gt; | head -n 100 | sed -n 2~4p
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>zcat &lt;FASTQ.GZ&gt; <span class="p">|</span> head -n <span class="m">100</span> <span class="p">|</span> sed -n <span class="m">2</span>~4p
+</code></pre></div>
 <h2 id="replace-fastq-read-name-by-ascending-numbers-starting-at-0">Replace FASTQ read name by ascending numbers starting at 0<a class="headerlink" href="#replace-fastq-read-name-by-ascending-numbers-starting-at-0" title="Permanent link">&para;</a></h2>
-<pre><code class="language-bash">gzip -dc &lt;INPUT.FASTQ.GZ&gt; | \
-    awk 'BEGIN {line=3;read=0} ++line==4 {$0=&quot;@&quot;read;line=0;read++} 1' |  \
-    gzip &gt; &lt;OUTPUT.FASTQ.GZ&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>gzip -dc &lt;INPUT.FASTQ.GZ&gt; <span class="p">|</span> <span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>    awk <span class="s1">&#39;BEGIN {line=3;read=0} ++line==4 {$0=&quot;@&quot;read;line=0;read++} 1&#39;</span> <span class="p">|</span>  <span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    gzip &gt; &lt;OUTPUT.FASTQ.GZ&gt;
+</code></pre></div>
 <h2 id="transferring-snapgene-exported-primer-files-to-local-desktop">Transferring <code>snapgene</code> exported primer files to local desktop<a class="headerlink" href="#transferring-snapgene-exported-primer-files-to-local-desktop" title="Permanent link">&para;</a></h2>
-<pre><code class="language-bash">rsync &quot;serine://home/common/Desktop/rasi/Primers from to be cloned&quot;* /home/rasi/desktop/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>rsync <span class="s2">&quot;serine://home/common/Desktop/rasi/Primers from to be cloned&quot;</span>* /home/rasi/desktop/
+</code></pre></div>
 <h2 id="looking-for-specific-primers-in-snapgene-exported-primer-files">Looking for specific primers in <code>snapgene</code> exported primer files<a class="headerlink" href="#looking-for-specific-primers-in-snapgene-exported-primer-files" title="Permanent link">&para;</a></h2>
 <p>This looks for primers starting as oAS8 followed by 6, 7, 8, or 9 in the <code>snapgene</code>-exported files.</p>
-<pre><code class="language-bash">for file in &quot;Primers from &quot;*; do grep &quot;oAS8[6789]&quot; &quot;$file&quot; &gt; &quot;${file/txt/tsv}&quot;; done
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">for</span> file <span class="k">in</span> <span class="s2">&quot;Primers from &quot;</span>*<span class="p">;</span> <span class="k">do</span> grep <span class="s2">&quot;oAS8[6789]&quot;</span> <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> &gt; <span class="s2">&quot;</span><span class="si">${</span><span class="nv">file</span><span class="p">/txt/tsv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>
 <h2 id="mounting-snapgene-from-serine-onto-your-local-machine">Mounting <code>snapgene</code> from <code>serine</code> onto your local machine<a class="headerlink" href="#mounting-snapgene-from-serine-onto-your-local-machine" title="Permanent link">&para;</a></h2>
-<pre><code class="language-bash">sshfs &quot;serine://home/common/git/snapgene_maps/DNA Files&quot; /home/rasi/mounts/snapgene/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>sshfs <span class="s2">&quot;serine://home/common/git/snapgene_maps/DNA Files&quot;</span> /home/rasi/mounts/snapgene/
+</code></pre></div>
 <h2 id="logging-into-serine-and-opening-snapgene">Logging into <code>serine</code> and opening <code>snapgene</code><a class="headerlink" href="#logging-into-serine-and-opening-snapgene" title="Permanent link">&para;</a></h2>
-<pre><code class="language-bash">ssh serine
-sh /opt/gslbiotech/snapgene/snapgene.sh
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>ssh serine
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>sh /opt/gslbiotech/snapgene/snapgene.sh
+</code></pre></div>
 <h2 id="find-absolute-links-to-images-in-markdown-files-and-replace-them-with-relative-links">Find absolute links to images in markdown files and replace them with relative links.<a class="headerlink" href="#find-absolute-links-to-images-in-markdown-files-and-replace-them-with-relative-links" title="Permanent link">&para;</a></h2>
-<pre><code class="language-bash">for file in */analyze_results.md; do sed -i -r 's/.+(analyze_results_files.+)/![](\1/p' $file; done
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">for</span> file <span class="k">in</span> */analyze_results.md<span class="p">;</span> <span class="k">do</span> sed -i -r <span class="s1">&#39;s/.+(analyze_results_files.+)/![](\1/p&#39;</span> <span class="nv">$file</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>
 <h2 id="find-the-largest-files-in-your-current-directory-and-its-sub-directories">Find the largest files in your current directory and its sub directories.<a class="headerlink" href="#find-the-largest-files-in-your-current-directory-and-its-sub-directories" title="Permanent link">&para;</a></h2>
 <p>You might want to check and delete these periodically.</p>
 <ul>
@@ -535,8 +535,8 @@ sh /opt/gslbiotech/snapgene/snapgene.sh
 </li>
 <li>
 <p>The following command will print out the size and location of the 30 largest files in your current directory and its subdirectories.</p>
-<p><code>bash
-find . -type f -printf '%s\t%p\n' | sort -nr | head -30</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>find . -type f -printf <span class="s1">&#39;%s\t%p\n&#39;</span> <span class="p">|</span> sort -nr <span class="p">|</span> head -30
+</code></pre></div>
 </li>
 <li>
 <p>Once you have identified these files, delete the useless ones using <code>rm FILE_LOCATION</code>.</p>
@@ -544,11 +544,11 @@ find . -type f -printf '%s\t%p\n' | sort -nr | head -30</code></p>
 </ul>
 <h2 id="export-only-recently-modified-svg-files-to-png">Export only recently modified <code>.svg</code> files to <code>.png</code><a class="headerlink" href="#export-only-recently-modified-svg-files-to-png" title="Permanent link">&para;</a></h2>
 <p>This works for files in the current working directory.</p>
-<pre><code class="language-bash">for file in `find *.svg -type f -mmin -60`; do newname=${file//svg/png}; inkscape --export-png=$newname --export-dpi=300 $file; echo $newname; done
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">for</span> file <span class="k">in</span> <span class="sb">`</span>find *.svg -type f -mmin -60<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> <span class="nv">newname</span><span class="o">=</span><span class="si">${</span><span class="nv">file</span><span class="p">//svg/png</span><span class="si">}</span><span class="p">;</span> inkscape --export-png<span class="o">=</span><span class="nv">$newname</span> --export-dpi<span class="o">=</span><span class="m">300</span> <span class="nv">$file</span><span class="p">;</span> <span class="nb">echo</span> <span class="nv">$newname</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>
 <h2 id="check-if-a-file-does-not-exist">Check if a file does not exist<a class="headerlink" href="#check-if-a-file-does-not-exist" title="Permanent link">&para;</a></h2>
-<pre><code class="language-bash">for folder in processeddata/*; do if [ ! -f &quot;$folder&quot;/gencode.genome.bam ]; then echo $folder; fi; done
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">for</span> folder <span class="k">in</span> processeddata/*<span class="p">;</span> <span class="k">do</span> <span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="nv">$folder</span><span class="s2">&quot;</span>/gencode.genome.bam <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> <span class="nv">$folder</span><span class="p">;</span> <span class="k">fi</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div>
 
               
             </article>

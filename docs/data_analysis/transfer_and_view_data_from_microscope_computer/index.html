@@ -451,16 +451,16 @@
 </li>
 <li>
 <p>Stop the Windows <code>ssh</code> service:</p>
-<pre><code>Stop-Service sshd
-</code></pre>
+<div class="highlight"><pre><span></span><code>Stop-Service sshd
+</code></pre></div>
 </li>
 <li>
 <p>Open a new tab on the same <code>Windows Terminal</code> window but running <code>Ubuntu</code>. To do this, click on the down arrow at the top of the window bar.</p>
 </li>
 <li>
 <p>Start the Ubuntu <code>ssh</code> service:</p>
-<pre><code>sudo service ssh --full-restart
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo service ssh --full-restart
+</code></pre></div>
 </li>
 </ol>
 <h1 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h1>
@@ -468,54 +468,53 @@
 <ol>
 <li>
 <p>Clone the <code>imagej_scripts</code> to your local computer if you have not done so already, and symbolically link the correct script to your current analysis folder:</p>
-<p><code>bash
-cd ~/git
-git clone https://github.com/rasilab/imagej_scripts.git
-cd $folder
-ln -s ~/git/imagej_scripts/standardize_display_threshold_layout.py .</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">cd</span> ~/git
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>git clone https://github.com/rasilab/imagej_scripts.git
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">cd</span> <span class="nv">$folder</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>ln -s ~/git/imagej_scripts/standardize_display_threshold_layout.py .
+</code></pre></div>
 </li>
 <li>
 <p>If you have not done it already, make sure to symbolically link <code>ImageJ</code> to your <code>bin</code> which should be in your <code>PATH</code>:</p>
-<p><code>bash
-cd ~/bin
-ln -s ~/lib/Fiji.app/ImageJ-linux64 .</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span> ~/bin
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>ln -s ~/lib/Fiji.app/ImageJ-linux64 .
+</code></pre></div>
 </li>
 <li>
 <p>Create an <code>ssh</code> profile on your local computer to enable easy logging into the microscope computer by putting the following at the bottom of your <code>~/.ssh/config</code> file:</p>
-<p>```bash</p>
-<h1 id="microscope-computer-ubuntu-running-on-wsl">Microscope computer Ubuntu running on WSL<a class="headerlink" href="#microscope-computer-ubuntu-running-on-wsl" title="Permanent link">&para;</a></h1>
-<p>Host scope
-User common
-HostName 140.107.25.132
-ForwardX11 yes
-Compression yes
-ControlMaster auto
-ControlPath ~/.ssh/%r@%h:%p
-ServerAliveInterval 15
-ServerAliveCountMax 3
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Microscope computer Ubuntu running on WSL</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>Host scope
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>User common
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>HostName <span class="m">140</span>.107.25.132
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>ForwardX11 yes
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>Compression yes
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>ControlMaster auto
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>ControlPath ~/.ssh/%r@%h:%p
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>ServerAliveInterval <span class="m">15</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>ServerAliveCountMax <span class="m">3</span>
+</code></pre></div>
 </li>
 <li>
 <p>Enable password-less login to the microscope computer by sending your public key to the scope computer. You need to use the password from <a href="https://github.com/rasilab/protocols_tutorials/blob/master/internal/labadmin/login_and_ordering_for_vendors.md">here</a> below:</p>
-<p><code>bash
-cat .ssh/id_rsa.pub | ssh scope 'cat &gt;&gt; .ssh/authorized_keys'</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>cat .ssh/id_rsa.pub <span class="p">|</span> ssh scope <span class="s1">&#39;cat &gt;&gt; .ssh/authorized_keys&#39;</span>
+</code></pre></div>
 </li>
 <li>
 <p>Create the correct destination folder in your local desktop to match the data folder on the microscope computer:</p>
-<p><code>bash
-folder="~/Desktop/data/20200103_hpark_exp223_wt_ltn1ko_tom70_nsr1_mkate2_yfp_nonstop_mf/timelapse_gfp_rfp_zstack_48hrs_1"
-mkdir --parent $folder 
-cd $folder</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nv">folder</span><span class="o">=</span><span class="s2">&quot;~/Desktop/data/20200103_hpark_exp223_wt_ltn1ko_tom70_nsr1_mkate2_yfp_nonstop_mf/timelapse_gfp_rfp_zstack_48hrs_1&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>mkdir --parent <span class="nv">$folder</span> 
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nb">cd</span> <span class="nv">$folder</span>
+</code></pre></div>
 </li>
 <li>
 <p>Transfer the files to your local computer from the microscope computer using <code>rsync</code>. Here we are transferring the files for just a single imaging position since it can take a while to transfer files. Note the <code>.</code> at the end of the command to indicate that you want files transferred to your current directory.</p>
-<p><code>bash
-rsync -av scope://mnt/e/microscope/20200103_hpark_exp223_wt_ltn1ko_tom70_nsr1_mkate2_yfp_nonstop_mf/timelapse_gfp_rfp_zstack_48hrs_1/Pos4 .</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>rsync -av scope://mnt/e/microscope/20200103_hpark_exp223_wt_ltn1ko_tom70_nsr1_mkate2_yfp_nonstop_mf/timelapse_gfp_rfp_zstack_48hrs_1/Pos4 .
+</code></pre></div>
 </li>
 <li>
 <p>Run the <code>ImageJ</code> <code>python</code> script making sure to pick the right <code>regex</code> pattern for your folders and files. For example, below we want to look at all folders whose names end as <code>Pos0</code>, <code>Pos1</code>, … <code>Pos9</code>, and look at only the files inside them that contain <code>TxR</code> in their name:</p>
-<p><code>bash
-ImageJ-linux64 --ij2 --run standardize_display_threshold_layout.py 'file_regex="TxR",folder_regex="Pos[0-9]$"'</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>ImageJ-linux64 --ij2 --run standardize_display_threshold_layout.py <span class="s1">&#39;file_regex=&quot;TxR&quot;,folder_regex=&quot;Pos[0-9]$&quot;&#39;</span>
+</code></pre></div>
 </li>
 </ol>
 <h1 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h1>

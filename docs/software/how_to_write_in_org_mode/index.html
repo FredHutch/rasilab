@@ -542,57 +542,57 @@
 <li><a href="https://orgmode.org/worg/org-tutorials/orgtutorial_dto.html">David O'Toole Org tutorial</a></li>
 </ul>
 <h2 id="headings">Headings<a class="headerlink" href="#headings" title="Permanent link">&para;</a></h2>
-<pre><code>***** Heading Level 1
+<div class="highlight"><pre><span></span><code>***** Heading Level 1
 ****** Heading Level 2
 ******* Heading Level 3
 ******** Heading Level 4
 etc.
-</code></pre>
+</code></pre></div>
 <ul>
 <li>Headings can be inserted at the same level by <code>Alt + Enter</code> from end of line.</li>
 <li>Headings can be rearranged up or down by <code>Alt + ↑/↓</code>.</li>
 <li>Headings can be changed to another level by <code>Alt + ←/→</code>.</li>
 </ul>
 <h2 id="lists">Lists<a class="headerlink" href="#lists" title="Permanent link">&para;</a></h2>
-<pre><code>- Item 1
+<div class="highlight"><pre><span></span><code>- Item 1
 - Item 2
-</code></pre>
+</code></pre></div>
 <ul>
 <li>Lists are very similar to headings. The shortcuts for rearranging heading above can also be used for rearranging lists.</li>
 <li>List style can be changed by <code>Shift + ←/→</code>.</li>
 </ul>
 <h2 id="commonly-used-symbols">Commonly-used symbols<a class="headerlink" href="#commonly-used-symbols" title="Permanent link">&para;</a></h2>
 <p>Insert the following into your <code>.emacs</code> file:</p>
-<pre><code class="language-elisp">;; Set up keyboard shortcuts for math symbols
-;; http://ergoemacs.org/emacs/emacs_n_unicode.html
-(define-key key-translation-map (kbd &quot;&lt;f9&gt; a&quot;) (kbd &quot;α&quot;))
-(define-key key-translation-map (kbd &quot;&lt;f9&gt; b&quot;) (kbd &quot;β&quot;))
-(define-key key-translation-map (kbd &quot;&lt;f9&gt; d&quot;) (kbd &quot;δ&quot;))
-(define-key key-translation-map (kbd &quot;&lt;f9&gt; D&quot;) (kbd &quot;Δ&quot;))
-(define-key key-translation-map (kbd &quot;&lt;f9&gt; ul&quot;) (kbd &quot;µl&quot;))
-(define-key key-translation-map (kbd &quot;&lt;f9&gt; ug&quot;) (kbd &quot;µg&quot;))
-(define-key key-translation-map (kbd &quot;&lt;f9&gt; -&gt;&quot;) (kbd &quot;→&quot;))
-(define-key key-translation-map (kbd &quot;&lt;f9&gt; &lt;-&quot;) (kbd &quot;←&quot;))
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">;; Set up keyboard shortcuts for math symbols</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1">;; http://ergoemacs.org/emacs/emacs_n_unicode.html</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">(</span><span class="nf">define-key</span> <span class="nv">key-translation-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;&lt;f9&gt; a&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;α&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">(</span><span class="nf">define-key</span> <span class="nv">key-translation-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;&lt;f9&gt; b&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;β&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">(</span><span class="nf">define-key</span> <span class="nv">key-translation-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;&lt;f9&gt; d&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;δ&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">(</span><span class="nf">define-key</span> <span class="nv">key-translation-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;&lt;f9&gt; D&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;Δ&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">(</span><span class="nf">define-key</span> <span class="nv">key-translation-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;&lt;f9&gt; ul&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;µl&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">(</span><span class="nf">define-key</span> <span class="nv">key-translation-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;&lt;f9&gt; ug&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;µg&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">(</span><span class="nf">define-key</span> <span class="nv">key-translation-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;&lt;f9&gt; -&gt;&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;→&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">(</span><span class="nf">define-key</span> <span class="nv">key-translation-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;&lt;f9&gt; &lt;-&quot;</span><span class="p">)</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;←&quot;</span><span class="p">))</span>
+</code></pre></div>
 <p>Then you can hit <code>F9</code> and the key above to insert the corresponding symbol.</p>
 <h2 id="font-styling">Font styling<a class="headerlink" href="#font-styling" title="Permanent link">&para;</a></h2>
-<pre><code>*bold*
+<div class="highlight"><pre><span></span><code>*bold*
 /italic/, /genesymbol/
 _underline_
 =verbatim=, =inlinecode=
-</code></pre>
+</code></pre></div>
 <h2 id="hyperlinks">Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permanent link">&para;</a></h2>
-<pre><code>[[http://www.linkaddress.com][Link Text]]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[[http://www.linkaddress.com][Link Text]]
+</code></pre></div>
 <p>If you want the hyperlink to be displayed as the address itself:</p>
-<pre><code>[[http://www.linkaddress.com]]
-</code></pre>
+<div class="highlight"><pre><span></span><code>[[http://www.linkaddress.com]]
+</code></pre></div>
 <h2 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h2>
-<pre><code>| Col 1  | Col 2  | Col 3  |
+<div class="highlight"><pre><span></span><code>| Col 1  | Col 2  | Col 3  |
 |--------+--------+--------|
 | Data 1 | Data 2 | Data 3 |
 | Data 4 | Data 5 | Data 6 |
-</code></pre>
+</code></pre></div>
 <p>Note that the tables are <em>smart</em>:</p>
 <ul>
 <li><code>Tab</code> will introduce a new column.</li>
@@ -616,16 +616,16 @@ _underline_
 <p>This will display the image in its full size (usually way too large), so you can either resize the image in Inkscape, Gimp etc. before linking, or add some code to <code>.emacs</code> to set a default display width. The second option is OS-specifc.</p>
 <h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
 <p><code>#+BEGIN_SRC</code></p>
-<pre><code>Source code here
-</code></pre>
+<div class="highlight"><pre><span></span><code>Source code here
+</code></pre></div>
 <p><code>#+END_SRC</code></p>
 <p>Keyboard shortcut is <code>&lt;s → Tab</code>.</p>
 <p>You can also get language-specific syntax highlighting when you export Org mode files to HTML or Latex. Look at Rasi's Emacs configuration file: <a href="https://github.com/rasilab/rasi_xps15_config/blob/master/emacs#L225-L244">https://github.com/rasilab/rasi_xps15_config/blob/master/emacs#L225-L244</a> for how to do this.</p>
 <h2 id="latex">Latex<a class="headerlink" href="#latex" title="Permanent link">&para;</a></h2>
 <p>Most latex syntax can be used without any special notation in Org mode. This is particularly useful for fine control over figure placements, journal-specific environments etc.</p>
 <p>To insert latex headers, do</p>
-<pre><code>#+LATEX_HEADER: \usepackage{amsmath}
-</code></pre>
+<div class="highlight"><pre><span></span><code>#+LATEX_HEADER: \usepackage{amsmath}
+</code></pre></div>
 <h2 id="insert-table-of-contents-into-your-org-mode-file">Insert table of contents into your Org mode file<a class="headerlink" href="#insert-table-of-contents-into-your-org-mode-file" title="Permanent link">&para;</a></h2>
 <p>It is really useful to have a Table of Contents for Org files that you frequently view on Github.</p>
 <p>You can install <a href="https://github.com/snosov1/toc-org#via-packageel">TOC-Org</a> package so that every time you save your Org file, a Table of Contents is automatically generated and updated.</p>
