@@ -497,6 +497,12 @@
 </code></pre></div>
 </li>
 <li>
+<p>If you are pulling Singularity images that are not public, then you need to authenticate with GitHub packages using a personal access token. To do this create a GitHub <a href="https://github.com/settings/tokens/new">Personal Access Token</a> and save it in your <code>~/.bash_profile</code> as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">export</span> <span class="nv">SINGULARITY_DOCKER_USERNAME</span><span class="o">=</span>&lt;your_github_username&gt;
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">export</span> <span class="nv">SINGULARITY_DOCKER_PASSWORD</span><span class="o">=</span>&lt;your_personal_access_token&gt;
+</code></pre></div>
+</li>
+<li>
 <p>Note that <code>Docker</code> is not allowed on the Fred Hutch cluster. You can use <code>Singularity</code> images instead.</p>
 </li>
 </ul>
