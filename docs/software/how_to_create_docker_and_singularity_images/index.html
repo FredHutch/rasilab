@@ -395,8 +395,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps-to-build-and-tag-docker-containers" class="md-nav__link">
-    Steps to build and tag Docker containers
+  <a href="#steps-to-build-and-tag-docker-images" class="md-nav__link">
+    Steps to build and tag Docker images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-images-locally" class="md-nav__link">
+    How to use images locally
   </a>
   
 </li>
@@ -424,7 +431,7 @@
 <h2 id="general-organization">General organization<a class="headerlink" href="#general-organization" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>All Docker and Singularity images should be build off a <code>Dockerfile</code> file that lives in its own public GitHub repository in the <a href="https://github.com/orgs/rasilab/">rasilab</a> GitHub organization account. </p>
+<p>All Docker and Singularity images should be built off a <code>Dockerfile</code> file that lives in its own public GitHub repository in the <a href="https://github.com/orgs/rasilab/">rasilab</a> GitHub organization account. </p>
 </li>
 <li>
 <p>All Docker images should be publicly available in our lab's GitHub <a href="https://github.com/orgs/rasilab/packages">container</a> repository.</p>
@@ -442,14 +449,14 @@
 <p>If you need standalone bioinformatic packages, derive them off the <a href="https://hub.docker.com/layers/continuumio/miniconda3/4.12.0/images/sha256-58b1c7df8d69655ffec017ede784a075e3c2e9feff0fc50ef65300fc75aa45ae?context=explore">Miniconda3 4.12.0</a> base image. For example, see the <a href="https://github.com/rasilab/samtools/pkgs/container/samtools">Samtools</a> package in our lab's package repository. You can also use these images as basis for other packages. For example, see the <a href="https://github.com/rasilab/bowtie2/blob/main/Dockerfile">Bowtie2</a> package in our lab's package repository.</p>
 </li>
 </ul>
-<h2 id="steps-to-build-and-tag-docker-containers">Steps to build and tag Docker containers<a class="headerlink" href="#steps-to-build-and-tag-docker-containers" title="Permanent link">&para;</a></h2>
+<h2 id="steps-to-build-and-tag-docker-images">Steps to build and tag Docker images<a class="headerlink" href="#steps-to-build-and-tag-docker-images" title="Permanent link">&para;</a></h2>
 <p>To create or update a <code>Dockerfile</code> and the associated <code>image</code>, follow these steps:</p>
 <ul>
 <li>
 <p>Edit the <code>Dockerfile</code> in <code>VScode</code> to add or remove software. Always make modifications at the end of the <code>Dockerfile</code> so that only few intermediate images need to be re-created. This decreases the space and time requirements for building and pushing the image. </p>
 </li>
 <li>
-<p>If you are creating a new Dockerfile, use a Dockerfile and README template from a previous package GitHub repository, for eg. <a href="https://github.com/rasilab/r/pkgs/container/mageck">MaGeCK</a>. Make sure to set the repository name and description appropriately, and update its visibility to public.</p>
+<p>If you are creating a new GitHub repository for a new package, use a Dockerfile and README template from a previous package GitHub repository, for eg. <a href="https://github.com/rasilab/r/pkgs/container/mageck">MaGeCK</a>. Make sure to set the repository name and description appropriately, and update its visibility to public.</p>
 </li>
 <li>
 <p>Build the Docker image from the folder that contains the <code>Dockerfile</code>. Give a specific tag (see below for tag convention).</p>
@@ -499,7 +506,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>module load Singularity
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a>singularity pull docker://&lt;image_name:tag&gt;
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># example</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>singularity pull docker://ghcr.io/rasilab/project_repo:0.1.0
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>singularity pull docker://ghcr.io/rasilab/python:1.0.0
 </code></pre></div>
 </li>
 <li>
@@ -510,6 +517,29 @@
 </li>
 <li>
 <p>Note that <code>Docker</code> is not allowed on the Fred Hutch cluster. You can use <code>Singularity</code> images instead.</p>
+</li>
+</ul>
+<h2 id="how-to-use-images-locally">How to use images locally<a class="headerlink" href="#how-to-use-images-locally" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>You can pull images to your local machine by:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>docker pull docker://ghcr.io/rasilab/PACAGE_NAME:X.Y.Z
+</code></pre></div>
+</li>
+<li>
+<p>You can create a named container from the above image by:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>docker run -i -d --name pandoc-latex -v <span class="nv">$HOME</span>:<span class="nv">$HOME</span> ghcr.io/rasilab/pandoc-latex:1.1.0
+</code></pre></div>
+</li>
+<li>
+<p>You can use the container to run a command. For example,</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>docker <span class="nb">exec</span> -w <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span> pandoc-latex pandoc manuscript.md --citeproc --template<span class="o">=</span>template.tex --metadata-file<span class="o">=</span>pandoc-options.yaml --pdf-engine<span class="o">=</span>xelatex -o manuscript.pdf --filter<span class="o">=</span>pandoc-svg.py
+</code></pre></div>
+</li>
+<li>
+<p>You can also use the containers in a VSCode <code>.devcontainer.json</code> file (for eg. to run Jupyter Notebooks):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;ghcr.io/rasilab/r:1.0.0&quot;</span><span class="p">,</span>
+</code></pre></div>
 </li>
 </ul>
 
