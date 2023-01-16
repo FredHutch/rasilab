@@ -495,7 +495,7 @@
 </ol>
 </li>
 <li>
-<p>Push the Docker image to the GitHub container registry.</p>
+<p>Push the Docker image to the GitHub container registry. The first time you do this from a computer, you will have to set up a Personal Access Token (classic version) as explained <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic">here</a>.  Make sure to give the <a href="https://docs.github.com/en/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries"><code>write:packages</code></a> permission when you create the token. </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>docker push &lt;image_name:tag&gt;
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># example</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a>docker push ghcr.io/rasilab/python:1.2.0
