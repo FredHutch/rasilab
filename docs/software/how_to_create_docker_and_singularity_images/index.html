@@ -411,6 +411,19 @@
     How to use images locally
   </a>
   
+    <nav class="md-nav" aria-label="How to use images locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-our-labs-singularity-containers-in-snakemake-workflows-on-the-fred-hutch-cluster" class="md-nav__link">
+    How to use our lab's Singularity containers in Snakemake workflows on the Fred Hutch cluster
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -549,6 +562,13 @@
 </code></pre></div>
 </li>
 </ul>
+<h3 id="how-to-use-our-labs-singularity-containers-in-snakemake-workflows-on-the-fred-hutch-cluster">How to use our lab's Singularity containers in Snakemake workflows on the Fred Hutch cluster<a class="headerlink" href="#how-to-use-our-labs-singularity-containers-in-snakemake-workflows-on-the-fred-hutch-cluster" title="Permanent link">&para;</a></h3>
+<p>We often use our lab's <a href="https://github.com/orgs/rasilab/packages">standard</a> Docker containers for running specific Snakemake rules on the Fred Hutch cluster. If you use a specification of the form <code>singularity: "docker://ghcr.io/rasilab/r:1.0.0"</code> within a Snakemake rule, then this Docker container will be pulled to your local directory, converted to a Singularity container, and stored at <code>.snakemake/singularity</code> in your current working directory. However, it takes a long time to download and convert each Docker container and each conntainer also uses up several GB of space. To avoid this, Rasi has stored a copy of all commonly used Singularity containers in our lab at <code>/fh/scratch/delete90/subramaniam_a/user/rasi/singularity</code>. You can symbolically link this folder to your workflow by executing the following from the folder that contains your Snakemake file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mkdir .snakemake
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cd .snakemake
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>ln -s /fh/scratch/delete90/subramaniam_a/user/rasi/singularity .
+</code></pre></div>
+<p>This will make all common singularity containers (files ending with <code>.simg</code>) immediately available to your Snakemake workflow. Note that Snakemake names the Singularity containers based on their SHA IDs.</p>
 
 
 
