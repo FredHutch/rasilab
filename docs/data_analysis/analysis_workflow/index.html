@@ -487,18 +487,18 @@
 <ul>
 <li>All analysis should be performed in the project GitHub repository cloned to <code>/fh/scratch/delete90/subramaniam_a/USER-NAME/git/REPO-NAME</code>.</li>
 <li>Create a new branch for each analysis and merge it with <code>main</code> or <code>master</code> when the analysis is complete.</li>
-<li>Analysis scripts for any single experiment should go into the folder <code>analysis/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/</code>.</li>
+<li>Analysis scripts for any single experiment should go into the folder <code>analysis/USER-NAME/EXPT-TYPE/YYYYMMDD_ISSUE-NUMBER_EXPT-NUMBER_EXPT-DESCRIPTION/</code>. Use the same folder organization and naming convention as what you used to store the data on S3.</li>
 <li>Each analysis folder should contain a <code>README.md</code> file at the top level. All other files should be stored in one of <code>data</code>, <code>annotations</code>, <code>scripts</code>, <code>figures</code>, <code>tables</code> subfolders.</li>
 <li>Raw data and sample annotations should be copied from AWS S3 into <code>analysis/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/data/</code>. For multistep analysis such deep sequencing where you generate lot of processed data,  store your raw data in a subfolder of <code>data</code> such as <code>fastq</code>.</li>
 <li>Copy files from AWS S3 to the <code>data</code> folder using the following <code>aws cli</code>command. Store this command as <code>aws_s3_cp.sh</code> in the <code>data</code> folder and commit it to GitHub so that you can easily run it again the next time you want to perform the analysis.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>aws cp s3://fh-pi-subramaniam-a-eco/data/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/ .
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>aws cp s3://fh-pi-subramaniam-a-eco/data/REPO-NAME/USER-NAME/EXPT-TYPE/YYYYMMDD_ISSUE-NUMBER_EXPT-NUMBER_EXPT-DESCRIPTION/ .
 </code></pre></div>
 <ul>
 <li>Commit README.md, scripts and small image and tables (&lt;1MB) to GitHub. </li>
 <li>All tables should be in CSV or TSV format and not in XLS or ODS format.</li>
 <li>All figures should be PDF format so that they can be edited in Inkscape. The only exceptions are scatter plots with lot of points where a PNG is suitable to save space.</li>
-<li>The analysis should be fully reproducible by running a single script such as Jupyter Notebook or a Snakemake pipeline. Note that all intermediate files will be automatically deleted after 90 days in the <code>scratch</code> folder.</li>
+<li>The analysis should be fully reproducible by running a single script such as a Jupyter Notebook or a Snakemake pipeline. Note that all intermediate files will be automatically deleted after 90 days in the <code>scratch</code> folder.</li>
 </ul>
 <h2 id="software">Software<a class="headerlink" href="#software" title="Permanent link">&para;</a></h2>
 <p>All analysis should be performed in <code>singularity</code> containers or <code>conda</code> environments that can be reproducibly created from a <code>Dockerfile</code> or an <code>environment.yml</code> file, respectively.</p>
