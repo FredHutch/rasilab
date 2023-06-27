@@ -479,7 +479,7 @@
 <ul>
 <li>Raw data and sample annotations for each experiment will be stored in AWS S3. Do this even for experiments where the data is already on the Fred Hutch cluster, such as deep sequencing data.</li>
 <li>Use the link and login info <a href="https://github.com/rasilab/protocols_tutorials/blob/master/internal/labadmin/login_and_ordering_for_vendors.md">here</a> to access the AWS S3 bucket.</li>
-<li>Data for any single experiment should go into the folder <code>fh-pi-subramaniam-a-eco/data/USER-NAME/EXPT-TYPE/YYYYMMDD_EXPT-NAME_EXPT-DESCRIPTION/</code>.</li>
+<li>Data for any single experiment should go into the folder <code>fh-pi-subramaniam-a-eco/data/REPO-NAME/USER-NAME/EXPT-TYPE/YYYYMMDD_ISSUE-NUMBER_EXPT-NUMBER_EXPT-DESCRIPTION/</code>.</li>
 <li>Every experiment folder much have an associated <code>sample_annotations.csv</code> file in the same folder. See <a href="../how-to-create-a-sample-annotation-file-before-analysis/">here</a> for how to create this file. You should create <code>sample_annotations.csv</code> even for assays that yield a single image such as Western blots. The only exceptions are agarose gel images, Sanger sequencing data, and Nanodrop measurements (only those measurements that are unlikely to be used in a publication or analyzed quantitatively).</li>
 <li>You can login to AWS S3 from any computer connected to the internet and upload your data files using the web interface. Alternately, you can also use the AWS CLI command <code>cp</code> to copy from your local computer to the AWS S3 bucket after you create the bucket. See example below.</li>
 </ul>
