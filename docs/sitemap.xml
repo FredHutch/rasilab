@@ -436,6 +436,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://rasilab.github.io/docs/software/how_to_digitally_sign_documents/</loc>
+         <lastmod>2023-10-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://rasilab.github.io/docs/software/how_to_draw_in_inkscape/</loc>
          <lastmod>2023-10-18</lastmod>
          <changefreq>daily</changefreq>
