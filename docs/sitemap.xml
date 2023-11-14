@@ -111,6 +111,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://rasilab.github.io/docs/experiments/cloning/ecoli_tss_chemical_comp_cells/</loc>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://rasilab.github.io/docs/experiments/cloning/how_to_mutate_using_bsmb1_cloning/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
